@@ -11,7 +11,7 @@ collection:
     meta:
       id: fld_2bdaf6705bb245e282d34314011a2459
       created: 1774328191829
-      modified: 1774399533196
+      modified: 1774421485080
       sortKey: -1774329887890
       description: |-
         # Usage
@@ -93,7 +93,7 @@ collection:
         meta:
           id: req_b1b09e322a9843a1a0c44aeaaf7bf379
           created: 1774328216520
-          modified: 1774334476544
+          modified: 1774421520377
           isPrivate: false
           description: ""
           sortKey: -1774328204341
@@ -271,11 +271,14 @@ collection:
           rebuildPath: true
     environment:
       path: /hardware-spec
+    environmentPropertyOrder:
+      "&":
+        - path
   - name: device
     meta:
       id: fld_2f073cd76af5488baf62c19e86108b50
       created: 1774329887790
-      modified: 1774399463081
+      modified: 1774421513082
       sortKey: -1774329887790
       description: |-
         # Usage
@@ -479,6 +482,9 @@ collection:
           rebuildPath: true
     environment:
       path: /device
+    environmentPropertyOrder:
+      "&":
+        - path
 cookieJar:
   name: Default Jar
   meta:
