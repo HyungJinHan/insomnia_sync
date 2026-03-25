@@ -169,7 +169,7 @@ collection:
         meta:
           id: req_18f02bb2927a4a7d9b56d370cac345e8
           created: 1774341923197
-          modified: 1774342034613
+          modified: 1774424248075
           isPrivate: false
           description: ""
           sortKey: -1768883695191.5
@@ -203,7 +203,7 @@ collection:
                 ],
                 "measurement_range": {
                   "dissolved_oxygen": {
-                    "max": 20,
+                    "max": 30,
                     "min": 0,
                     "unit": "mg/L"
                   },
@@ -329,7 +329,7 @@ collection:
         meta:
           id: req_faab4bb3abcb4cf3b57a359f11b4a13b
           created: 1774330180773
-          modified: 1774417342458
+          modified: 1774427582082
           isPrivate: false
           description: ""
           sortKey: -1774329896696
@@ -358,8 +358,7 @@ collection:
               "lifecycle": "{{ _.device_lifecycle_options[0] }}",
               "connection_status": "{{ _.device_connection_status_options[0] }}",
               "install_date": "{% now 'iso-8601', '' %}",
-              "startup_time": "{% now 'iso-8601', '' %}",
-              "peripherals": []
+              "startup_time": "{% now 'iso-8601', '' %}"
             }
         headers:
           - name: Content-Type
@@ -408,7 +407,7 @@ collection:
         meta:
           id: req_08ba8177b80447f3b469e776087ce34d
           created: 1774342335697
-          modified: 1774417346839
+          modified: 1774428442684
           isPrivate: false
           description: ""
           sortKey: -1774329896396
@@ -417,7 +416,7 @@ collection:
           mimeType: application/json
           text: >-
             {
-              "serial_number": "{% faker 'guid' %}",
+            	"serial_number": "{% faker 'guid' %}",
               "thing_name": "{% faker 'randomWord' %}",
               "fw_version": "{% faker 'randomInt' %}",
               "network_type": "{{ _.device_network_type_options[0] }}",
@@ -431,14 +430,13 @@ collection:
                   "rsrp": -100.19999694824219,
                   "rsrq": -6.199999809265137,
                   "rssi": -74.0999984741211,
-                  "rssnr": 22
+                  "rssnr": 20
                 }
             	},
               "lifecycle": "{{ _.device_lifecycle_options[0] }}",
               "connection_status": "{{ _.device_connection_status_options[0] }}",
               "install_date": "{% now 'iso-8601', '' %}",
-              "startup_time": "{% now 'iso-8601', '' %}",
-              "peripherals": []
+              "startup_time": "{% now 'iso-8601', '' %}"
             }
         headers:
           - name: Content-Type
