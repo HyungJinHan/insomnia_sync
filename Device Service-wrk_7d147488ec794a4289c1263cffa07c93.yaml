@@ -11,22 +11,21 @@ collection:
     meta:
       id: fld_2bdaf6705bb245e282d34314011a2459
       created: 1774328191829
-      modified: 1774421485080
+      modified: 1774501119034
       sortKey: -1774329887890
       description: |-
         # Usage
         1. `POST`를 통해 생성
-        2. `GET`을 통해 생성한 하드웨어 스펙 목록 불러오기
-        3. 단일 `GET`의 경우, 앞서 모두 `GET`한 하드웨어 스펙 목록에서 `[0]`의 UUID를 참조하여 불러옴
-        4. `PUT`, `DELETE` 모두 단일 `GET`과 동일한 로직으로 작동
-        	- _`DELETE` 이벤트 실행 후, 모두 `GET` 이벤트 실행 필요 (단일 `GET` 이벤트 에러 발생으로 인함)_
+        2. 단일 `GET`의 경우, 앞서 모두 `GET`한 하드웨어 스펙 목록에서 `[0]`의 UUID를 참조하여 불러옴
+        3. `PUT`, `DELETE` 모두 단일 `GET`과 동일한 로직으로 작동
+        4. `peripheral`이 연결된 하드웨어 스펙의 경우 삭제 불가
     children:
       - url: "{{ _.base_url }}{{ _.path }}"
         name: /hardware-spec
         meta:
           id: req_1e22b9eab8364060a87ee033e72bbfbd
           created: 1774328038756
-          modified: 1774341848695
+          modified: 1774499917277
           isPrivate: false
           description: ""
           sortKey: -1774328204441
@@ -37,7 +36,7 @@ collection:
             {
               "vendor": "{% faker 'randomCompanyName' %}",
               "name": "{% faker 'randomWord' %}",
-              "code": "{% faker 'randomWord' %}",
+              "code": "{% faker 'guid' %}",
               "category": "{{ _.hw_spec_category_options[0] }}",
               "interfaces": ["{{ _.hw_spec_interfaces_options[0] }}", "{{ _.hw_spec_interfaces_options[2] }}", "{{ _.hw_spec_interfaces_options[3] }}"],
               "protocols": ["{{ _.hw_spec_protocols_options[0] }}", "{{ _.hw_spec_protocols_options[1] }}"],
@@ -126,12 +125,12 @@ collection:
           rebuildPath: true
       - url: "{{ _.base_url }}{{ _.path }}/{% response 'body',
           'req_b1b09e322a9843a1a0c44aeaaf7bf379', 'b64::JFswXS51dWlk::46b',
-          'never', 60 %}"
+          'always', 60 %}"
         name: /hardware-spec/{dw_spec_uuid}
         meta:
           id: req_13bb643f1c2e4388884f32e91dac9868
           created: 1774337274043
-          modified: 1774342175960
+          modified: 1774499506722
           isPrivate: false
           description: ""
           sortKey: -1768883695291.5
@@ -164,12 +163,12 @@ collection:
           rebuildPath: true
       - url: "{{ _.base_url }}{{ _.path }}/{% response 'body',
           'req_b1b09e322a9843a1a0c44aeaaf7bf379', 'b64::JFswXS51dWlk::46b',
-          'never', 60 %}"
+          'always', 60 %}"
         name: /hardware-spec/{dw_spec_uuid}
         meta:
           id: req_18f02bb2927a4a7d9b56d370cac345e8
           created: 1774341923197
-          modified: 1774424248075
+          modified: 1774499693018
           isPrivate: false
           description: ""
           sortKey: -1768883695191.5
@@ -232,13 +231,13 @@ collection:
             store: true
           rebuildPath: true
       - url: "{{ _.base_url }}{{ _.path }}/{% response 'body',
-          'req_b1b09e322a9843a1a0c44aeaaf7bf379', 'b64::JFswXS51dWlk::46b',
-          'never', 60 %}"
+          'req_b1b09e322a9843a1a0c44aeaaf7bf379', 'b64::JFsxXS51dWlk::46b',
+          'always', 60 %}"
         name: /hardware-spec/{dw_spec_uuid}
         meta:
           id: req_1e7103dcf2004c269b4e34f8953961aa
           created: 1774342140668
-          modified: 1774342147317
+          modified: 1774500693432
           isPrivate: false
           description: ""
           sortKey: -1768883695091.5
@@ -278,15 +277,13 @@ collection:
     meta:
       id: fld_2f073cd76af5488baf62c19e86108b50
       created: 1774329887790
-      modified: 1774421513082
+      modified: 1774501163395
       sortKey: -1774329887790
       description: |-
         # Usage
         1. `POST`를 통해 생성
-        2. `GET`을 통해 생성한 디바이스 목록 불러오기
-        3. 단일 `GET`의 경우, 앞서 모두 `GET`한 디바이스 목록에서 `[0]`의 UUID를 참조하여 불러옴
-        4. `PUT`, `DELETE` 모두 단일 `GET`과 동일한 로직으로 작동
-        	- _`DELETE` 이벤트 실행 후, 모두 `GET` 이벤트 실행 필요 (단일 `GET` 이벤트 에러 발생으로 인함)_
+        2. 단일 `GET`의 경우, 앞서 모두 `GET`한 디바이스 목록에서 `[0]`의 UUID를 참조하여 불러옴
+        3. `PUT`, `DELETE` 모두 단일 `GET`과 동일한 로직으로 작동
     children:
       - url: "{{ _.base_url }}{{ _.path }}"
         name: /device
@@ -329,7 +326,7 @@ collection:
         meta:
           id: req_faab4bb3abcb4cf3b57a359f11b4a13b
           created: 1774330180773
-          modified: 1774427582082
+          modified: 1774496175837
           isPrivate: false
           description: ""
           sortKey: -1774329896696
@@ -341,8 +338,8 @@ collection:
               "serial_number": "{% faker 'guid' %}",
               "thing_name": "{% faker 'randomWord' %}",
               "fw_version": "{% faker 'randomInt' %}",
-              "network_type": "{{ _.device_network_type_options[0] }}",
               "network_info": {
+            		"type": "{{ _.device_network_type_options[0] }}",
                 "imei": "861005074353795",
                 "imsi": "204047149332712",
                 "isp": "KT DATA ONLY",
@@ -377,12 +374,12 @@ collection:
           rebuildPath: true
       - url: "{{ _.base_url }}{{ _.path }}/{% response 'body',
           'req_7d294459fc46494699b8ef49e8b25925', 'b64::JFswXS51dWlk::46b',
-          'never', 60 %}"
+          'always', 60 %}"
         name: /device/{device_uuid}
         meta:
           id: req_7b90e773e2e74669a2fb9b034b947c11
           created: 1774337166090
-          modified: 1774342332224
+          modified: 1774499381816
           isPrivate: false
           description: ""
           sortKey: -1774329896496
@@ -402,12 +399,12 @@ collection:
           rebuildPath: true
       - url: "{{ _.base_url }}{{ _.path }}/{% response 'body',
           'req_7d294459fc46494699b8ef49e8b25925', 'b64::JFswXS51dWlk::46b',
-          'never', 60 %}"
+          'always', 60 %}"
         name: /device/{device_uuid}
         meta:
           id: req_08ba8177b80447f3b469e776087ce34d
           created: 1774342335697
-          modified: 1774428442684
+          modified: 1774505393016
           isPrivate: false
           description: ""
           sortKey: -1774329896396
@@ -419,8 +416,8 @@ collection:
             	"serial_number": "{% faker 'guid' %}",
               "thing_name": "{% faker 'randomWord' %}",
               "fw_version": "{% faker 'randomInt' %}",
-              "network_type": "{{ _.device_network_type_options[0] }}",
               "network_info": {
+            		"type": "{{ _.device_network_type_options[0] }}",
                 "imei": "861005074353795",
                 "imsi": "204047149332712",
                 "isp": "KT DATA ONLY",
@@ -455,17 +452,70 @@ collection:
           rebuildPath: true
       - url: "{{ _.base_url }}{{ _.path }}/{% response 'body',
           'req_7d294459fc46494699b8ef49e8b25925', 'b64::JFswXS51dWlk::46b',
-          'never', 60 %}"
+          'always', 60 %}"
         name: /device/{device_uuid}
         meta:
           id: req_39680db875b14f7fb700e1fcf4c3d49c
           created: 1774400625526
-          modified: 1774400643480
+          modified: 1774499390211
           isPrivate: false
           description: ""
           sortKey: -1774329050418.5
         method: DELETE
         headers:
+          - name: User-Agent
+            value: insomnia/12.4.0
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.base_url }}{{ _.path }}/{% response 'body',
+          'req_7d294459fc46494699b8ef49e8b25925',
+          'b64::JFswXS50aGluZ19uYW1l::46b', 'always', 60 %}"
+        name: /device/{thing_name}
+        meta:
+          id: req_ed2a2fb4d3e944a299c89761c96dbeee
+          created: 1774503245234
+          modified: 1774505282292
+          isPrivate: false
+          description: ""
+          sortKey: -1774329473407.25
+        method: PUT
+        body:
+          mimeType: application/json
+          text: >-
+            {
+            	"serial_number": "{% faker 'guid' %}",
+              "thing_name": "{% faker 'randomWord' %}",
+              "fw_version": "{% faker 'randomInt' %}",
+              "network_info": {
+            		"type": "{{ _.device_network_type_options[0] }}",
+                "imei": "861005074353795",
+                "imsi": "204047149332712",
+                "isp": "KT DATA ONLY",
+                "signal": {
+                  "band": "EUTRAN-BAND3",
+                  "rat": "LTE",
+                  "rsrp": -100.19999694824219,
+                  "rsrq": -6.199999809265137,
+                  "rssi": -74.0999984741211,
+                  "rssnr": 20
+                }
+            	},
+              "lifecycle": "{{ _.device_lifecycle_options[0] }}",
+              "connection_status": "{{ _.device_connection_status_options[0] }}",
+              "install_date": "{% now 'iso-8601', '' %}",
+              "startup_time": "{% now 'iso-8601', '' %}"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
           - name: User-Agent
             value: insomnia/12.4.0
             description: ""
@@ -487,20 +537,17 @@ collection:
     meta:
       id: fld_bd18f9602c124e4fa03063d882f93efc
       created: 1774484852298
-      modified: 1774491090851
+      modified: 1774501190427
       sortKey: -1767460869046.5
       description: >-
         # Usage
 
         1. `POST`를 통해 생성
 
-        2. `GET`을 통해 생성한 디바이스 목록 불러오기
+        2. 단일 `GET`의 경우, 앞서 모두 `GET`한 디바이스 목록에서 `[0]`의 UUID를 참조하여 불러옴
 
-        3. 단일 `GET`의 경우, 앞서 모두 `GET`한 디바이스 목록에서 `[0]`의 UUID를 참조하여 불러옴
-
-        4. `PUT`, `DELETE` 모두 단일 `GET`과 동일한 로직으로 작동
+        3. `PUT`, `DELETE` 모두 단일 `GET`과 동일한 로직으로 작동
         	- _`PUT` 이벤트의 경우, 실제 `device`(옵션)와 `hardware-spec`(필수) 데이터(`id`, `PK`)가 존재해야 정상적인 이벤트 실행이 가능_
-        	- _`DELETE` 이벤트 실행 후, 모두 `GET` 이벤트 실행 필요 (단일 `GET` 이벤트 에러 발생으로 인함)_
     children:
       - url: "{{ _.base_url }}{{ _.path }}"
         name: /peripheral
@@ -543,7 +590,7 @@ collection:
         meta:
           id: req_1b953855073b47eeaadd5650ec8dbc41
           created: 1774484852300
-          modified: 1774487672481
+          modified: 1774501655027
           isPrivate: false
           description: ""
           sortKey: -1774329896696
@@ -552,8 +599,8 @@ collection:
           mimeType: application/json
           text: >-
             {
-             	"hardware_id": "{% response 'body', 'req_b1b09e322a9843a1a0c44aeaaf7bf379', 'b64::JFswXS5pZA==::46b', 'never', 60 %}",
-             	"device_id": "{% response 'body', 'req_7d294459fc46494699b8ef49e8b25925', 'b64::JFswXS5pZA==::46b', 'never', 60 %}",
+             	"hardware_uuid": "{% response 'body', 'req_b1b09e322a9843a1a0c44aeaaf7bf379', 'b64::JFswXS51dWlk::46b', 'always', 60 %}",
+             	"device_uuid": "{% response 'body', 'req_7d294459fc46494699b8ef49e8b25925', 'b64::JFswXS51dWlk::46b', 'always', 60 %}",
               "serial_number": "{% faker 'randomUUID' %}",
               "name": "{% faker 'randomWord' %}",
               "data_key": "{% faker 'guid' %}",
@@ -595,12 +642,12 @@ collection:
           rebuildPath: true
       - url: "{{ _.base_url }}{{ _.path }}/{% response 'body',
           'req_cc95b96e776e49f4b59b6cca2f85c6c6', 'b64::JFswXS51dWlk::46b',
-          'never', 60 %}"
+          'always', 60 %}"
         name: /peripheral/{peripheral_uuid}
         meta:
           id: req_5a5e85d058194b56b35f5998bddf76cf
           created: 1774484852300
-          modified: 1774487125953
+          modified: 1774499430692
           isPrivate: false
           description: ""
           sortKey: -1774329896496
@@ -620,12 +667,12 @@ collection:
           rebuildPath: true
       - url: "{{ _.base_url }}{{ _.path }}/{% response 'body',
           'req_cc95b96e776e49f4b59b6cca2f85c6c6', 'b64::JFswXS51dWlk::46b',
-          'never', 60 %}"
+          'always', 60 %}"
         name: /peripheral/{peripheral_uuid}
         meta:
           id: req_6590727d14b54b52ab58ab3ea4f800cd
           created: 1774484852300
-          modified: 1774490678460
+          modified: 1774502088964
           isPrivate: false
           description: ""
           sortKey: -1774329896396
@@ -634,8 +681,8 @@ collection:
           mimeType: application/json
           text: >-
             {
-             	"hardware_id": "{% response 'body', 'req_b1b09e322a9843a1a0c44aeaaf7bf379', 'b64::JFswXS5pZA==::46b', 'never', 60 %}",
-             	"device_id": "{% response 'body', 'req_7d294459fc46494699b8ef49e8b25925', 'b64::JFswXS5pZA==::46b', 'never', 60 %}",
+             	"hardware_uuid": "{% response 'body', 'req_b1b09e322a9843a1a0c44aeaaf7bf379', 'b64::JFswXS51dWlk::46b', 'always', 60 %}",
+             	"device_uuid": "{% response 'body', 'req_7d294459fc46494699b8ef49e8b25925', 'b64::JFswXS51dWlk::46b', 'always', 60 %}",
               "serial_number": "{% faker 'randomUUID' %}",
               "name": "{% faker 'randomWord' %}",
               "data_key": "{% faker 'guid' %}",
@@ -677,12 +724,12 @@ collection:
           rebuildPath: true
       - url: "{{ _.base_url }}{{ _.path }}/{% response 'body',
           'req_cc95b96e776e49f4b59b6cca2f85c6c6', 'b64::JFswXS51dWlk::46b',
-          'never', 60 %}"
+          'always', 60 %}"
         name: /peripheral/{peripheral_uuid}
         meta:
           id: req_e9cf01345e4d4651b90fb49d864b9756
           created: 1774484852301
-          modified: 1774487137086
+          modified: 1774499453676
           isPrivate: false
           description: ""
           sortKey: -1774329050418.5
