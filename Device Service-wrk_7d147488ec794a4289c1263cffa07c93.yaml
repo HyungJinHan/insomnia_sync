@@ -483,6 +483,228 @@ collection:
     environmentPropertyOrder:
       "&":
         - path
+  - name: peripheral
+    meta:
+      id: fld_bd18f9602c124e4fa03063d882f93efc
+      created: 1774484852298
+      modified: 1774491090851
+      sortKey: -1767460869046.5
+      description: >-
+        # Usage
+
+        1. `POST`를 통해 생성
+
+        2. `GET`을 통해 생성한 디바이스 목록 불러오기
+
+        3. 단일 `GET`의 경우, 앞서 모두 `GET`한 디바이스 목록에서 `[0]`의 UUID를 참조하여 불러옴
+
+        4. `PUT`, `DELETE` 모두 단일 `GET`과 동일한 로직으로 작동
+        	- _`PUT` 이벤트의 경우, 실제 `device`(옵션)와 `hardware-spec`(필수) 데이터(`id`, `PK`)가 존재해야 정상적인 이벤트 실행이 가능_
+        	- _`DELETE` 이벤트 실행 후, 모두 `GET` 이벤트 실행 필요 (단일 `GET` 이벤트 에러 발생으로 인함)_
+    children:
+      - url: "{{ _.base_url }}{{ _.path }}"
+        name: /peripheral
+        meta:
+          id: req_cc95b96e776e49f4b59b6cca2f85c6c6
+          created: 1774484852299
+          modified: 1774484944030
+          isPrivate: false
+          description: ""
+          sortKey: -1774329896596
+        method: GET
+        parameters:
+          - name: range
+            value: "[0, 9]"
+            description: ""
+            disabled: false
+          - name: filter
+            value: ""
+            description: ""
+            disabled: true
+          - name: sort
+            value: ""
+            description: ""
+            disabled: true
+        headers:
+          - name: User-Agent
+            value: insomnia/12.4.0
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.base_url }}{{ _.path }}"
+        name: /peripheral
+        meta:
+          id: req_1b953855073b47eeaadd5650ec8dbc41
+          created: 1774484852300
+          modified: 1774487672481
+          isPrivate: false
+          description: ""
+          sortKey: -1774329896696
+        method: POST
+        body:
+          mimeType: application/json
+          text: >-
+            {
+             	"hardware_id": "{% response 'body', 'req_b1b09e322a9843a1a0c44aeaaf7bf379', 'b64::JFswXS5pZA==::46b', 'never', 60 %}",
+             	"device_id": "{% response 'body', 'req_7d294459fc46494699b8ef49e8b25925', 'b64::JFswXS5pZA==::46b', 'never', 60 %}",
+              "serial_number": "{% faker 'randomUUID' %}",
+              "name": "{% faker 'randomWord' %}",
+              "data_key": "{% faker 'guid' %}",
+              "interval": 30,
+              "sw_version": "{% faker 'randomInt' %}",
+              "interface_conf": {
+                "baudrate": 9600,
+                "function_code": "0x03",
+                "mapping": {
+                  "dissolved_oxygen": {
+                    "address": 40002,
+                    "data_type": "float",
+                    "scale": 0.1
+                  },
+                  "temperature": {
+                    "address": 40001,
+                    "data_type": "float",
+                    "scale": 0.1
+                  }
+                },
+                "protocol": "MODBUS_RTU",
+                "slave_id": 10
+              }
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/12.4.0
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.base_url }}{{ _.path }}/{% response 'body',
+          'req_cc95b96e776e49f4b59b6cca2f85c6c6', 'b64::JFswXS51dWlk::46b',
+          'never', 60 %}"
+        name: /peripheral/{peripheral_uuid}
+        meta:
+          id: req_5a5e85d058194b56b35f5998bddf76cf
+          created: 1774484852300
+          modified: 1774487125953
+          isPrivate: false
+          description: ""
+          sortKey: -1774329896496
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/12.4.0
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.base_url }}{{ _.path }}/{% response 'body',
+          'req_cc95b96e776e49f4b59b6cca2f85c6c6', 'b64::JFswXS51dWlk::46b',
+          'never', 60 %}"
+        name: /peripheral/{peripheral_uuid}
+        meta:
+          id: req_6590727d14b54b52ab58ab3ea4f800cd
+          created: 1774484852300
+          modified: 1774490678460
+          isPrivate: false
+          description: ""
+          sortKey: -1774329896396
+        method: PUT
+        body:
+          mimeType: application/json
+          text: >-
+            {
+             	"hardware_id": "{% response 'body', 'req_b1b09e322a9843a1a0c44aeaaf7bf379', 'b64::JFswXS5pZA==::46b', 'never', 60 %}",
+             	"device_id": "{% response 'body', 'req_7d294459fc46494699b8ef49e8b25925', 'b64::JFswXS5pZA==::46b', 'never', 60 %}",
+              "serial_number": "{% faker 'randomUUID' %}",
+              "name": "{% faker 'randomWord' %}",
+              "data_key": "{% faker 'guid' %}",
+              "interval": 30,
+              "sw_version": "{% faker 'randomInt' %}",
+              "interface_conf": {
+                "baudrate": 9600,
+                "function_code": "0x03",
+                "mapping": {
+                  "dissolved_oxygen": {
+                    "address": 40002,
+                    "data_type": "float",
+                    "scale": 0.1
+                  },
+                  "temperature": {
+                    "address": 40001,
+                    "data_type": "float",
+                    "scale": 0.1
+                  }
+                },
+                "protocol": "MODBUS_RTU",
+                "slave_id": 30
+              }
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/12.4.0
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.base_url }}{{ _.path }}/{% response 'body',
+          'req_cc95b96e776e49f4b59b6cca2f85c6c6', 'b64::JFswXS51dWlk::46b',
+          'never', 60 %}"
+        name: /peripheral/{peripheral_uuid}
+        meta:
+          id: req_e9cf01345e4d4651b90fb49d864b9756
+          created: 1774484852301
+          modified: 1774487137086
+          isPrivate: false
+          description: ""
+          sortKey: -1774329050418.5
+        method: DELETE
+        headers:
+          - name: User-Agent
+            value: insomnia/12.4.0
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+    environment:
+      path: /peripheral
+    environmentPropertyOrder:
+      "&":
+        - path
 cookieJar:
   name: Default Jar
   meta:
