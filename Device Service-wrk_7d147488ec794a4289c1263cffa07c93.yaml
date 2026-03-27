@@ -25,7 +25,7 @@ collection:
         meta:
           id: req_1e22b9eab8364060a87ee033e72bbfbd
           created: 1774328038756
-          modified: 1774499917277
+          modified: 1774584561400
           isPrivate: false
           description: ""
           sortKey: -1774328204441
@@ -36,7 +36,7 @@ collection:
             {
               "vendor": "{% faker 'randomCompanyName' %}",
               "name": "{% faker 'randomWord' %}",
-              "code": "{% faker 'guid' %}",
+              "code": "{% faker 'randomWord' %}",
               "category": "{{ _.hw_spec_category_options[0] }}",
               "interfaces": ["{{ _.hw_spec_interfaces_options[0] }}", "{{ _.hw_spec_interfaces_options[2] }}", "{{ _.hw_spec_interfaces_options[3] }}"],
               "protocols": ["{{ _.hw_spec_protocols_options[0] }}", "{{ _.hw_spec_protocols_options[1] }}"],
@@ -92,7 +92,7 @@ collection:
         meta:
           id: req_b1b09e322a9843a1a0c44aeaaf7bf379
           created: 1774328216520
-          modified: 1774421520377
+          modified: 1774583817838
           isPrivate: false
           description: ""
           sortKey: -1774328204341
@@ -103,7 +103,7 @@ collection:
             description: ""
             disabled: false
           - name: filter
-            value: ""
+            value: '{"uuid": "2e5641d6-3904-40cd-b80d-8369003d0326"}'
             description: ""
             disabled: true
           - name: sort
@@ -168,7 +168,7 @@ collection:
         meta:
           id: req_18f02bb2927a4a7d9b56d370cac345e8
           created: 1774341923197
-          modified: 1774499693018
+          modified: 1774577565686
           isPrivate: false
           description: ""
           sortKey: -1768883695191.5
@@ -179,7 +179,7 @@ collection:
             {
               "vendor": "{% faker 'randomCompanyName' %}",
               "name": "{% faker 'randomWord' %}",
-              "code": "{% faker 'randomWord' %}",
+              "code": "{% faker 'guid' %}",
               "category": "{{ _.hw_spec_category_options[0] }}",
               "interfaces": ["{{ _.hw_spec_interfaces_options[0] }}", "{{ _.hw_spec_interfaces_options[2] }}", "{{ _.hw_spec_interfaces_options[3] }}"],
               "protocols": ["{{ _.hw_spec_protocols_options[0] }}", "{{ _.hw_spec_protocols_options[1] }}"],
@@ -237,7 +237,7 @@ collection:
         meta:
           id: req_1e7103dcf2004c269b4e34f8953961aa
           created: 1774342140668
-          modified: 1774500693432
+          modified: 1774584391632
           isPrivate: false
           description: ""
           sortKey: -1768883695091.5
@@ -290,7 +290,7 @@ collection:
         meta:
           id: req_7d294459fc46494699b8ef49e8b25925
           created: 1774329896596
-          modified: 1774332414594
+          modified: 1774588241911
           isPrivate: false
           description: ""
           sortKey: -1774329896596
@@ -301,7 +301,7 @@ collection:
             description: ""
             disabled: false
           - name: filter
-            value: ""
+            value: '{"uuid": "aabc795a-9835-40f3-b549-fd4b4ba158ca"}'
             description: ""
             disabled: true
           - name: sort
@@ -457,7 +457,7 @@ collection:
         meta:
           id: req_39680db875b14f7fb700e1fcf4c3d49c
           created: 1774400625526
-          modified: 1774499390211
+          modified: 1774570553834
           isPrivate: false
           description: ""
           sortKey: -1774329050418.5
