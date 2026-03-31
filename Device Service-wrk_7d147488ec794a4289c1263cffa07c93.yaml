@@ -11,7 +11,7 @@ collection:
     meta:
       id: fld_2bdaf6705bb245e282d34314011a2459
       created: 1774328191829
-      modified: 1774501119034
+      modified: 1774835177098
       sortKey: -1774329887890
       description: |-
         # Usage
@@ -25,7 +25,7 @@ collection:
         meta:
           id: req_1e22b9eab8364060a87ee033e72bbfbd
           created: 1774328038756
-          modified: 1774584561400
+          modified: 1774835168414
           isPrivate: false
           description: ""
           sortKey: -1774328204441
@@ -41,7 +41,7 @@ collection:
               "interfaces": ["{{ _.hw_spec_interfaces_options[0] }}", "{{ _.hw_spec_interfaces_options[2] }}", "{{ _.hw_spec_interfaces_options[3] }}"],
               "protocols": ["{{ _.hw_spec_protocols_options[0] }}", "{{ _.hw_spec_protocols_options[1] }}"],
               "hw_version": "{% faker 'randomInt' %}",
-              "direction": "{{ _.hw_spec_direction_options[0] }}",
+              "direction": "{{ _.hw_spec_direction_options[2] }}",
               "capabilities": {
                 "certification": [
                   "CE",
@@ -92,18 +92,18 @@ collection:
         meta:
           id: req_b1b09e322a9843a1a0c44aeaaf7bf379
           created: 1774328216520
-          modified: 1774583817838
+          modified: 1774924538121
           isPrivate: false
           description: ""
           sortKey: -1774328204341
         method: GET
         parameters:
           - name: range
-            value: "[0, 9]"
+            value: "[0, 100]"
             description: ""
             disabled: false
           - name: filter
-            value: '{"uuid": "2e5641d6-3904-40cd-b80d-8369003d0326"}'
+            value: '{"direction": "bidirectional"}'
             description: ""
             disabled: true
           - name: sort
@@ -130,7 +130,7 @@ collection:
         meta:
           id: req_13bb643f1c2e4388884f32e91dac9868
           created: 1774337274043
-          modified: 1774499506722
+          modified: 1774831200241
           isPrivate: false
           description: ""
           sortKey: -1768883695291.5
@@ -269,7 +269,7 @@ collection:
             store: true
           rebuildPath: true
     environment:
-      path: /hardware-spec
+      path: /hardware-specs
     environmentPropertyOrder:
       "&":
         - path
@@ -277,7 +277,7 @@ collection:
     meta:
       id: fld_2f073cd76af5488baf62c19e86108b50
       created: 1774329887790
-      modified: 1774501163395
+      modified: 1774835179995
       sortKey: -1774329887790
       description: |-
         # Usage
@@ -290,18 +290,18 @@ collection:
         meta:
           id: req_7d294459fc46494699b8ef49e8b25925
           created: 1774329896596
-          modified: 1774588241911
+          modified: 1774924551473
           isPrivate: false
           description: ""
           sortKey: -1774329896596
         method: GET
         parameters:
           - name: range
-            value: "[0, 9]"
+            value: "[0, 100]"
             description: ""
             disabled: false
           - name: filter
-            value: '{"uuid": "aabc795a-9835-40f3-b549-fd4b4ba158ca"}'
+            value: '{"lifecycle": "provisioned"}'
             description: ""
             disabled: true
           - name: sort
@@ -529,7 +529,7 @@ collection:
             store: true
           rebuildPath: true
     environment:
-      path: /device
+      path: /devices
     environmentPropertyOrder:
       "&":
         - path
@@ -537,7 +537,7 @@ collection:
     meta:
       id: fld_bd18f9602c124e4fa03063d882f93efc
       created: 1774484852298
-      modified: 1774501190427
+      modified: 1774835182515
       sortKey: -1767460869046.5
       description: >-
         # Usage
@@ -554,18 +554,18 @@ collection:
         meta:
           id: req_cc95b96e776e49f4b59b6cca2f85c6c6
           created: 1774484852299
-          modified: 1774484944030
+          modified: 1774924555285
           isPrivate: false
           description: ""
           sortKey: -1774329896596
         method: GET
         parameters:
           - name: range
-            value: "[0, 9]"
+            value: "[0, 100]"
             description: ""
             disabled: false
           - name: filter
-            value: ""
+            value: '{"interval": 30}'
             description: ""
             disabled: true
           - name: sort
@@ -748,7 +748,7 @@ collection:
             store: true
           rebuildPath: true
     environment:
-      path: /peripheral
+      path: /peripherals
     environmentPropertyOrder:
       "&":
         - path
@@ -763,7 +763,7 @@ environments:
   meta:
     id: env_6668099b5e1d4cf4aa78bf5503d76b87
     created: 1774328032068
-    modified: 1774416116079
+    modified: 1774833945005
     isPrivate: false
   data:
     base_url: http://172.30.1.65:8080
@@ -792,7 +792,7 @@ environments:
     hw_spec_direction_options:
       - input
       - output
-      - bidirection
+      - bidirectional
     device_network_type_options:
       - modem
       - wifi
