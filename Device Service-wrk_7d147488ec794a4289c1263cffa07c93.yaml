@@ -268,6 +268,44 @@ collection:
             send: true
             store: true
           rebuildPath: true
+      - url: "{{ _.base_url }}{{ _.path }}/{% response 'body',
+          'req_b1b09e322a9843a1a0c44aeaaf7bf379', 'b64::JFswXS51dWlk::46b',
+          'always', 60 %}/peripherals"
+        name: /hardware-spec/{dw_spec_uuid}/peripherals
+        meta:
+          id: req_364926c6e8e34eada57aa3158f1cb1bf
+          created: 1775021680595
+          modified: 1775021736300
+          isPrivate: false
+          description: ""
+          sortKey: -1768883695241.5
+        method: GET
+        parameters:
+          - name: range
+            value: "[0, 9]"
+            description: ""
+            disabled: false
+          - name: filter
+            value: ""
+            description: ""
+            disabled: true
+          - name: sort
+            value: ""
+            description: ""
+            disabled: true
+        headers:
+          - name: User-Agent
+            value: insomnia/12.4.0
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
     environment:
       path: /hardware-specs
     environmentPropertyOrder:
@@ -554,7 +592,7 @@ collection:
         meta:
           id: req_cc95b96e776e49f4b59b6cca2f85c6c6
           created: 1774484852299
-          modified: 1774924555285
+          modified: 1774925641708
           isPrivate: false
           description: ""
           sortKey: -1774329896596
@@ -567,7 +605,7 @@ collection:
           - name: filter
             value: '{"interval": 30}'
             description: ""
-            disabled: true
+            disabled: false
           - name: sort
             value: ""
             description: ""
@@ -590,7 +628,7 @@ collection:
         meta:
           id: req_1b953855073b47eeaadd5650ec8dbc41
           created: 1774484852300
-          modified: 1774501655027
+          modified: 1775005817951
           isPrivate: false
           description: ""
           sortKey: -1774329896696
