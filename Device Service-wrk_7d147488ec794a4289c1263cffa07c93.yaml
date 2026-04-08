@@ -364,14 +364,14 @@ collection:
         meta:
           id: req_faab4bb3abcb4cf3b57a359f11b4a13b
           created: 1774330180773
-          modified: 1775636188363
+          modified: 1775637372780
           isPrivate: false
           description: ""
           sortKey: -1774329896696
         method: POST
         body:
           mimeType: application/json
-          text: >-
+          text: |-
             {
               "serial_number": "{% faker 'guid' %}",
               "thing_name": "{% faker 'randomWord' %}",
@@ -391,7 +391,7 @@ collection:
                 }
             	},
               "lifecycle": "{{ _.device_lifecycle_options[0] }}",
-              "connection_status": "{{ _.device_connection_status_options[0] }}",
+              "connection": "{{ _.device_connection_status_options[0] }}",
               "install_date": "{% now 'iso-8601', '' %}",
               "startup_time": "{% now 'iso-8601', '' %}"
             }
@@ -442,20 +442,20 @@ collection:
         meta:
           id: req_08ba8177b80447f3b469e776087ce34d
           created: 1774342335697
-          modified: 1774505393016
+          modified: 1775637379990
           isPrivate: false
           description: ""
           sortKey: -1774329896396
         method: PUT
         body:
           mimeType: application/json
-          text: >-
+          text: |-
             {
             	"serial_number": "{% faker 'guid' %}",
               "thing_name": "{% faker 'randomWord' %}",
               "fw_version": "{% faker 'randomInt' %}",
+            	"network_type": "{{ _.device_network_type_options[0] }}",
               "network_info": {
-            		"type": "{{ _.device_network_type_options[0] }}",
                 "imei": "861005074353795",
                 "imsi": "204047149332712",
                 "isp": "KT DATA ONLY",
@@ -469,7 +469,7 @@ collection:
                 }
             	},
               "lifecycle": "{{ _.device_lifecycle_options[0] }}",
-              "connection_status": "{{ _.device_connection_status_options[0] }}",
+              "connection": "{{ _.device_connection_status_options[0] }}",
               "install_date": "{% now 'iso-8601', '' %}",
               "startup_time": "{% now 'iso-8601', '' %}"
             }
@@ -520,20 +520,20 @@ collection:
         meta:
           id: req_ed2a2fb4d3e944a299c89761c96dbeee
           created: 1774503245234
-          modified: 1774505282292
+          modified: 1775637383163
           isPrivate: false
           description: ""
           sortKey: -1774329473407.25
         method: PUT
         body:
           mimeType: application/json
-          text: >-
+          text: |-
             {
             	"serial_number": "{% faker 'guid' %}",
               "thing_name": "{% faker 'randomWord' %}",
               "fw_version": "{% faker 'randomInt' %}",
+            	"network_type": "{{ _.device_network_type_options[0] }}",
               "network_info": {
-            		"type": "{{ _.device_network_type_options[0] }}",
                 "imei": "861005074353795",
                 "imsi": "204047149332712",
                 "isp": "KT DATA ONLY",
@@ -547,7 +547,7 @@ collection:
                 }
             	},
               "lifecycle": "{{ _.device_lifecycle_options[0] }}",
-              "connection_status": "{{ _.device_connection_status_options[0] }}",
+              "connection": "{{ _.device_connection_status_options[0] }}",
               "install_date": "{% now 'iso-8601', '' %}",
               "startup_time": "{% now 'iso-8601', '' %}"
             }
