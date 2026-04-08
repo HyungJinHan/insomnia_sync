@@ -364,7 +364,7 @@ collection:
         meta:
           id: req_faab4bb3abcb4cf3b57a359f11b4a13b
           created: 1774330180773
-          modified: 1774496175837
+          modified: 1775636188363
           isPrivate: false
           description: ""
           sortKey: -1774329896696
@@ -376,8 +376,8 @@ collection:
               "serial_number": "{% faker 'guid' %}",
               "thing_name": "{% faker 'randomWord' %}",
               "fw_version": "{% faker 'randomInt' %}",
+            	"network_type": "{{ _.device_network_type_options[0] }}",
               "network_info": {
-            		"type": "{{ _.device_network_type_options[0] }}",
                 "imei": "861005074353795",
                 "imsi": "204047149332712",
                 "isp": "KT DATA ONLY",
