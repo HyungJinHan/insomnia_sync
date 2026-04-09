@@ -364,7 +364,7 @@ collection:
         meta:
           id: req_faab4bb3abcb4cf3b57a359f11b4a13b
           created: 1774330180773
-          modified: 1775637372780
+          modified: 1775694889841
           isPrivate: false
           description: ""
           sortKey: -1774329896696
@@ -628,7 +628,7 @@ collection:
         meta:
           id: req_1b953855073b47eeaadd5650ec8dbc41
           created: 1774484852300
-          modified: 1775005817951
+          modified: 1775695188639
           isPrivate: false
           description: ""
           sortKey: -1774329896696
@@ -644,6 +644,7 @@ collection:
               "data_key": "{% faker 'guid' %}",
               "interval": 30,
               "sw_version": "{% faker 'randomInt' %}",
+            	"connection": "{{ _.device_connection_status_options[0] }}",
               "interface_conf": {
                 "baudrate": 9600,
                 "function_code": "0x03",
