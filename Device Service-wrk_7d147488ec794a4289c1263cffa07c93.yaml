@@ -25,7 +25,7 @@ collection:
         meta:
           id: req_1e22b9eab8364060a87ee033e72bbfbd
           created: 1774328038756
-          modified: 1775723862354
+          modified: 1775785278010
           isPrivate: false
           description: ""
           sortKey: -1774328204441
@@ -724,7 +724,7 @@ collection:
         meta:
           id: req_6590727d14b54b52ab58ab3ea4f800cd
           created: 1774484852300
-          modified: 1775780425516
+          modified: 1775781049249
           isPrivate: false
           description: ""
           sortKey: -1774329896396
@@ -821,7 +821,7 @@ environments:
   meta:
     id: env_6668099b5e1d4cf4aa78bf5503d76b87
     created: 1774328032068
-    modified: 1775722503868
+    modified: 1775787031946
     isPrivate: false
   data:
     base_url: http://172.30.1.65:8080
@@ -834,19 +834,29 @@ environments:
     hw_spec_interfaces_options:
       - RS485
       - RS422
+      - RS232
       - SPI
       - I2C
       - CAN
       - GPIO
       - ETHERNET
+      - SDI-12
+      - ANALOG
     hw_spec_protocols_options:
-      - MODBUS
+      - MODBUS_RTU
+      - MODBUS_TCP
       - STANDARD_I2C
       - STANDARD_SPI
       - J1939
       - BINARY_IO
       - PULSE_CONTROL
       - RAW_SERIAL
+      - SDI-12
+      - TCP_IP
+      - WEBSOCKET
+      - ANALOG
+      - NMEA0183
+      - NMEA2000
     hw_spec_direction_options:
       - input
       - output
@@ -855,11 +865,13 @@ environments:
       - modem
       - wifi
       - ethernet
+      - satellite
     device_lifecycle_options:
       - provisioned
       - stabled
       - rebooting
       - updating
+      - error
     device_app_type_options:
       - factory
       - service
