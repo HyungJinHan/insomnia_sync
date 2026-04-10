@@ -25,7 +25,7 @@ collection:
         meta:
           id: req_1e22b9eab8364060a87ee033e72bbfbd
           created: 1774328038756
-          modified: 1775785278010
+          modified: 1775794994527
           isPrivate: false
           description: ""
           sortKey: -1774328204441
@@ -35,9 +35,8 @@ collection:
           text: >-
             {
               "vendor": "{% faker 'randomCompanyName' %}",
-              "name": "{% faker 'randomWord' %}",
-              "code": "{% faker 'randomWord' %}",
               "series": "{% faker 'randomWord' %}",
+              "model": "{% faker 'randomWord' %}",
               "category": "{{ _.hw_spec_category_options[0] }}",
               "interfaces": ["{{ _.hw_spec_interfaces_options[0] }}", "{{ _.hw_spec_interfaces_options[2] }}", "{{ _.hw_spec_interfaces_options[3] }}"],
               "protocols": ["{{ _.hw_spec_protocols_options[0] }}", "{{ _.hw_spec_protocols_options[1] }}"],
@@ -169,7 +168,7 @@ collection:
         meta:
           id: req_18f02bb2927a4a7d9b56d370cac345e8
           created: 1774341923197
-          modified: 1775723879212
+          modified: 1775795015822
           isPrivate: false
           description: ""
           sortKey: -1768883695191.5
@@ -179,9 +178,8 @@ collection:
           text: >-
             {
               "vendor": "{% faker 'randomCompanyName' %}",
-              "name": "{% faker 'randomWord' %}",
-              "code": "{% faker 'randomWord' %}",
               "series": "{% faker 'randomWord' %}",
+              "model": "{% faker 'randomWord' %}",
               "category": "{{ _.hw_spec_category_options[0] }}",
               "interfaces": ["{{ _.hw_spec_interfaces_options[0] }}", "{{ _.hw_spec_interfaces_options[2] }}", "{{ _.hw_spec_interfaces_options[3] }}"],
               "protocols": ["{{ _.hw_spec_protocols_options[0] }}", "{{ _.hw_spec_protocols_options[1] }}"],
