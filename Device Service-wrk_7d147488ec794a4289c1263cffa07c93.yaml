@@ -25,7 +25,7 @@ collection:
         meta:
           id: req_1e22b9eab8364060a87ee033e72bbfbd
           created: 1774328038756
-          modified: 1774835168414
+          modified: 1775723862354
           isPrivate: false
           description: ""
           sortKey: -1774328204441
@@ -37,6 +37,7 @@ collection:
               "vendor": "{% faker 'randomCompanyName' %}",
               "name": "{% faker 'randomWord' %}",
               "code": "{% faker 'randomWord' %}",
+              "series": "{% faker 'randomWord' %}",
               "category": "{{ _.hw_spec_category_options[0] }}",
               "interfaces": ["{{ _.hw_spec_interfaces_options[0] }}", "{{ _.hw_spec_interfaces_options[2] }}", "{{ _.hw_spec_interfaces_options[3] }}"],
               "protocols": ["{{ _.hw_spec_protocols_options[0] }}", "{{ _.hw_spec_protocols_options[1] }}"],
@@ -126,11 +127,11 @@ collection:
       - url: "{{ _.base_url }}{{ _.path }}/{% response 'body',
           'req_b1b09e322a9843a1a0c44aeaaf7bf379', 'b64::JFswXS51dWlk::46b',
           'always', 60 %}"
-        name: /hardware-spec/{dw_spec_uuid}
+        name: /hardware-spec/{hw_spec_uuid}
         meta:
           id: req_13bb643f1c2e4388884f32e91dac9868
           created: 1774337274043
-          modified: 1774831200241
+          modified: 1775722991706
           isPrivate: false
           description: ""
           sortKey: -1768883695291.5
@@ -164,11 +165,11 @@ collection:
       - url: "{{ _.base_url }}{{ _.path }}/{% response 'body',
           'req_b1b09e322a9843a1a0c44aeaaf7bf379', 'b64::JFswXS51dWlk::46b',
           'always', 60 %}"
-        name: /hardware-spec/{dw_spec_uuid}
+        name: /hardware-spec/{hw_spec_uuid}
         meta:
           id: req_18f02bb2927a4a7d9b56d370cac345e8
           created: 1774341923197
-          modified: 1774577565686
+          modified: 1775723879212
           isPrivate: false
           description: ""
           sortKey: -1768883695191.5
@@ -179,12 +180,13 @@ collection:
             {
               "vendor": "{% faker 'randomCompanyName' %}",
               "name": "{% faker 'randomWord' %}",
-              "code": "{% faker 'guid' %}",
+              "code": "{% faker 'randomWord' %}",
+              "series": "{% faker 'randomWord' %}",
               "category": "{{ _.hw_spec_category_options[0] }}",
               "interfaces": ["{{ _.hw_spec_interfaces_options[0] }}", "{{ _.hw_spec_interfaces_options[2] }}", "{{ _.hw_spec_interfaces_options[3] }}"],
               "protocols": ["{{ _.hw_spec_protocols_options[0] }}", "{{ _.hw_spec_protocols_options[1] }}"],
               "hw_version": "{% faker 'randomInt' %}",
-              "direction": "{{ _.hw_spec_direction_options[0] }}",
+              "direction": "{{ _.hw_spec_direction_options[2] }}",
               "capabilities": {
                 "certification": [
                   "CE",
@@ -202,7 +204,7 @@ collection:
                 ],
                 "measurement_range": {
                   "dissolved_oxygen": {
-                    "max": 30,
+                    "max": 20,
                     "min": 0,
                     "unit": "mg/L"
                   },
@@ -231,13 +233,13 @@ collection:
             store: true
           rebuildPath: true
       - url: "{{ _.base_url }}{{ _.path }}/{% response 'body',
-          'req_b1b09e322a9843a1a0c44aeaaf7bf379', 'b64::JFsxXS51dWlk::46b',
+          'req_b1b09e322a9843a1a0c44aeaaf7bf379', 'b64::JFswXS51dWlk::46b',
           'always', 60 %}"
-        name: /hardware-spec/{dw_spec_uuid}
+        name: /hardware-spec/{hw_spec_uuid}
         meta:
           id: req_1e7103dcf2004c269b4e34f8953961aa
           created: 1774342140668
-          modified: 1774584391632
+          modified: 1775722856011
           isPrivate: false
           description: ""
           sortKey: -1768883695091.5
@@ -271,11 +273,11 @@ collection:
       - url: "{{ _.base_url }}{{ _.path }}/{% response 'body',
           'req_b1b09e322a9843a1a0c44aeaaf7bf379', 'b64::JFswXS51dWlk::46b',
           'always', 60 %}/peripherals"
-        name: /hardware-spec/{dw_spec_uuid}/peripherals
+        name: /hardware-spec/{hw_spec_uuid}/peripherals
         meta:
           id: req_364926c6e8e34eada57aa3158f1cb1bf
           created: 1775021680595
-          modified: 1775021736300
+          modified: 1775722835958
           isPrivate: false
           description: ""
           sortKey: -1768883695241.5
@@ -364,7 +366,7 @@ collection:
         meta:
           id: req_faab4bb3abcb4cf3b57a359f11b4a13b
           created: 1774330180773
-          modified: 1775694889841
+          modified: 1775724117264
           isPrivate: false
           description: ""
           sortKey: -1774329896696
@@ -376,6 +378,8 @@ collection:
               "serial_number": "{% faker 'guid' %}",
               "thing_name": "{% faker 'randomWord' %}",
               "fw_version": "{% faker 'randomInt' %}",
+            	"app_type": "{{ _.device_app_type_options[0] }}",
+            	"partition": "{{ _.device_partition_options[0] }}",
             	"network_type": "{{ _.device_network_type_options[0] }}",
               "network_info": {
                 "imei": "861005074353795",
@@ -391,9 +395,9 @@ collection:
                 }
             	},
               "lifecycle": "{{ _.device_lifecycle_options[0] }}",
-              "connection": "{{ _.device_connection_status_options[0] }}",
-              "install_date": "{% now 'iso-8601', '' %}",
-              "startup_time": "{% now 'iso-8601', '' %}"
+              "connection": "{{ _.connection_options[0] }}",
+              "install_date": {% now 'unix', '' %},
+              "startup_time": {% now 'unix', '' %}
             }
         headers:
           - name: Content-Type
@@ -417,7 +421,7 @@ collection:
         meta:
           id: req_7b90e773e2e74669a2fb9b034b947c11
           created: 1774337166090
-          modified: 1774499381816
+          modified: 1775722647033
           isPrivate: false
           description: ""
           sortKey: -1774329896496
@@ -442,7 +446,7 @@ collection:
         meta:
           id: req_08ba8177b80447f3b469e776087ce34d
           created: 1774342335697
-          modified: 1775637379990
+          modified: 1775724237084
           isPrivate: false
           description: ""
           sortKey: -1774329896396
@@ -451,9 +455,11 @@ collection:
           mimeType: application/json
           text: |-
             {
-            	"serial_number": "{% faker 'guid' %}",
+              "serial_number": "{% faker 'guid' %}",
               "thing_name": "{% faker 'randomWord' %}",
               "fw_version": "{% faker 'randomInt' %}",
+            	"app_type": "{{ _.device_app_type_options[0] }}",
+            	"partition": "{{ _.device_partition_options[0] }}",
             	"network_type": "{{ _.device_network_type_options[0] }}",
               "network_info": {
                 "imei": "861005074353795",
@@ -465,13 +471,13 @@ collection:
                   "rsrp": -100.19999694824219,
                   "rsrq": -6.199999809265137,
                   "rssi": -74.0999984741211,
-                  "rssnr": 20
+                  "rssnr": 22
                 }
             	},
               "lifecycle": "{{ _.device_lifecycle_options[0] }}",
-              "connection": "{{ _.device_connection_status_options[0] }}",
-              "install_date": "{% now 'iso-8601', '' %}",
-              "startup_time": "{% now 'iso-8601', '' %}"
+              "connection": "{{ _.connection_options[0] }}",
+              "install_date": {% now 'unix', '' %},
+              "startup_time": {% now 'unix', '' %}
             }
         headers:
           - name: Content-Type
@@ -520,7 +526,7 @@ collection:
         meta:
           id: req_ed2a2fb4d3e944a299c89761c96dbeee
           created: 1774503245234
-          modified: 1775637383163
+          modified: 1775724238894
           isPrivate: false
           description: ""
           sortKey: -1774329473407.25
@@ -529,9 +535,11 @@ collection:
           mimeType: application/json
           text: |-
             {
-            	"serial_number": "{% faker 'guid' %}",
+              "serial_number": "{% faker 'guid' %}",
               "thing_name": "{% faker 'randomWord' %}",
               "fw_version": "{% faker 'randomInt' %}",
+            	"app_type": "{{ _.device_app_type_options[0] }}",
+            	"partition": "{{ _.device_partition_options[0] }}",
             	"network_type": "{{ _.device_network_type_options[0] }}",
               "network_info": {
                 "imei": "861005074353795",
@@ -543,13 +551,13 @@ collection:
                   "rsrp": -100.19999694824219,
                   "rsrq": -6.199999809265137,
                   "rssi": -74.0999984741211,
-                  "rssnr": 20
+                  "rssnr": 22
                 }
             	},
               "lifecycle": "{{ _.device_lifecycle_options[0] }}",
-              "connection": "{{ _.device_connection_status_options[0] }}",
-              "install_date": "{% now 'iso-8601', '' %}",
-              "startup_time": "{% now 'iso-8601', '' %}"
+              "connection": "{{ _.connection_options[0] }}",
+              "install_date": {% now 'unix', '' %},
+              "startup_time": {% now 'unix', '' %}
             }
         headers:
           - name: Content-Type
@@ -628,7 +636,7 @@ collection:
         meta:
           id: req_1b953855073b47eeaadd5650ec8dbc41
           created: 1774484852300
-          modified: 1775695188639
+          modified: 1775724481204
           isPrivate: false
           description: ""
           sortKey: -1774329896696
@@ -637,32 +645,37 @@ collection:
           mimeType: application/json
           text: >-
             {
-             	"hardware_uuid": "{% response 'body', 'req_b1b09e322a9843a1a0c44aeaaf7bf379', 'b64::JFswXS51dWlk::46b', 'always', 60 %}",
-             	"device_uuid": "{% response 'body', 'req_7d294459fc46494699b8ef49e8b25925', 'b64::JFswXS51dWlk::46b', 'always', 60 %}",
-              "serial_number": "{% faker 'randomUUID' %}",
-              "name": "{% faker 'randomWord' %}",
-              "data_key": "{% faker 'guid' %}",
-              "interval": 30,
-              "sw_version": "{% faker 'randomInt' %}",
-            	"connection": "{{ _.device_connection_status_options[0] }}",
-              "interface_conf": {
-                "baudrate": 9600,
-                "function_code": "0x03",
-                "mapping": {
-                  "dissolved_oxygen": {
-                    "address": 40002,
-                    "data_type": "float",
-                    "scale": 0.1
-                  },
-                  "temperature": {
-                    "address": 40001,
-                    "data_type": "float",
-                    "scale": 0.1
-                  }
-                },
-                "protocol": "MODBUS_RTU",
-                "slave_id": 10
-              }
+            	"hardware_uuid": "{% response 'body', 'req_b1b09e322a9843a1a0c44aeaaf7bf379', 'b64::JFswXS51dWlk::46b', 'always', 60 %}",
+            	"device_uuid": "{% response 'body', 'req_7d294459fc46494699b8ef49e8b25925', 'b64::JFswXS51dWlk::46b', 'always', 60 %}",
+            	"serial_number": "{% faker 'randomUUID' %}",
+            	"name": "{% faker 'randomWord' %}",
+            	"data_key": [
+            		"{% faker 'guid' %}",
+            		"{% faker 'guid' %}"
+            	],
+            	"interval": 30,
+            	"sw_version": "{% faker 'randomInt' %}",
+            	"connection": "{{ _.connection_options[0] }}",
+            	"install_date": {% now 'unix', '' %},
+            	"interface_type": "{% response 'body', 'req_b1b09e322a9843a1a0c44aeaaf7bf379', 'b64::JFswXS5pbnRlcmZhY2VzWzBd::46b', 'always', 60 %}",
+            	"interface_conf": {
+            		"baudrate": 9600,
+            		"function_code": "0x03",
+            		"mapping": {
+            			"dissolved_oxygen": {
+            				"address": 40002,
+            				"data_type": "float",
+            				"scale": 0.1
+            			},
+            			"temperature": {
+            				"address": 40001,
+            				"data_type": "float",
+            				"scale": 0.1
+            			}
+            		},
+            		"protocol": "MODBUS_RTU",
+            		"slave_id": 10
+            	}
             }
         headers:
           - name: Content-Type
@@ -711,7 +724,7 @@ collection:
         meta:
           id: req_6590727d14b54b52ab58ab3ea4f800cd
           created: 1774484852300
-          modified: 1774502088964
+          modified: 1775780425516
           isPrivate: false
           description: ""
           sortKey: -1774329896396
@@ -724,9 +737,15 @@ collection:
              	"device_uuid": "{% response 'body', 'req_7d294459fc46494699b8ef49e8b25925', 'b64::JFswXS51dWlk::46b', 'always', 60 %}",
               "serial_number": "{% faker 'randomUUID' %}",
               "name": "{% faker 'randomWord' %}",
-              "data_key": "{% faker 'guid' %}",
+              "data_key": [
+            		"{% faker 'guid' %}",
+            		"{% faker 'guid' %}"
+            	],
               "interval": 30,
               "sw_version": "{% faker 'randomInt' %}",
+            	"connection": "{{ _.connection_options[0] }}",
+            	"install_date": {% now 'unix', '' %},
+            	"interface_type": "{% response 'body', 'req_b1b09e322a9843a1a0c44aeaaf7bf379', 'b64::JFswXS5pbnRlcmZhY2VzWzFd::46b', 'always', 60 %}",
               "interface_conf": {
                 "baudrate": 9600,
                 "function_code": "0x03",
@@ -743,7 +762,7 @@ collection:
                   }
                 },
                 "protocol": "MODBUS_RTU",
-                "slave_id": 30
+                "slave_id": 10
               }
             }
         headers:
@@ -802,7 +821,7 @@ environments:
   meta:
     id: env_6668099b5e1d4cf4aa78bf5503d76b87
     created: 1774328032068
-    modified: 1774833945005
+    modified: 1775722503868
     isPrivate: false
   data:
     base_url: http://172.30.1.65:8080
@@ -841,7 +860,13 @@ environments:
       - stabled
       - rebooting
       - updating
-    device_connection_status_options:
-      - connected
-      - disconnected
-      - error
+    device_app_type_options:
+      - factory
+      - service
+    device_partition_options:
+      - factory
+      - ota_0
+      - ota_1
+    connection_options:
+      - false
+      - true
