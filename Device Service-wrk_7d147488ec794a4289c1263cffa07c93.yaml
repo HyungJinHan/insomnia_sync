@@ -11,14 +11,33 @@ collection:
     meta:
       id: fld_2bdaf6705bb245e282d34314011a2459
       created: 1774328191829
-      modified: 1774835177098
+      modified: 1776042813438
       sortKey: -1774329887890
-      description: |-
+      description: >-
         # Usage
-        1. `POST`를 통해 생성
-        2. 단일 `GET`의 경우, 앞서 모두 `GET`한 하드웨어 스펙 목록에서 `[0]`의 UUID를 참조하여 불러옴
-        3. `PUT`, `DELETE` 모두 단일 `GET`과 동일한 로직으로 작동
-        4. `peripheral`이 연결된 하드웨어 스펙의 경우 삭제 불가
+
+        ### Body (`POST`, `PUT`)
+
+        - Category (`Enum`)
+        	<details>
+        		<summary markdown="span">Options</summary>
+        			<code>sensor</code> | <code>actuator</code> | <code>controller</code> | <code>gateway</code> | <code>meter</code>
+        	</details>
+        - Interfaces (`Enum`)
+        	<details>
+        		<summary markdown="span">Options</summary>
+        			<code>RS485</code> | <code>RS422</code> | <code>RS232</code> | <code>SPI</code> | <code>I2C</code> | <code>CAN</code> | <code>GPIO</code> | <code>ETHERNET</code> | <code>SDI-12</code> | <code>ANALOG</code>
+        	</details>
+        -	Protocols (`Enum`)
+        	<details>
+        		<summary markdown="span">Options</summary>
+        			<code>MODBUS_RTU</code> | <code>MODBUS_TCP</code> | <code>STANDARD_I2C</code> | <code>STANDARD_SPI</code> | <code>J1939</code> | <code>BINARY_IO</code> | <code>PULSE_CONTROL</code> | <code>RAW_SERIAL</code> | <code>SDI-12</code> | <code>TCP_IP</code> | <code>WEBSOCKET | ANALOG</code> | <code>NMEA0183</code> | <code>NMEA2000</code>
+        	</details>
+        - Direction (`Enum`)
+        	<details>
+        		<summary markdown="span">Options</summary>
+        			<code>input</code> | <code>output</code> | <code>bidirectional</code>
+        	</details>
     children:
       - url: "{{ _.base_url }}{{ _.path }}"
         name: /hardware-spec
@@ -231,13 +250,13 @@ collection:
             store: true
           rebuildPath: true
       - url: "{{ _.base_url }}{{ _.path }}/{% response 'body',
-          'req_b1b09e322a9843a1a0c44aeaaf7bf379', 'b64::JFswXS51dWlk::46b',
+          'req_b1b09e322a9843a1a0c44aeaaf7bf379', 'b64::JFsxXS51dWlk::46b',
           'always', 60 %}"
         name: /hardware-spec/{hw_spec_uuid}
         meta:
           id: req_1e7103dcf2004c269b4e34f8953961aa
           created: 1774342140668
-          modified: 1775722856011
+          modified: 1775803132444
           isPrivate: false
           description: ""
           sortKey: -1768883695091.5
@@ -315,13 +334,33 @@ collection:
     meta:
       id: fld_2f073cd76af5488baf62c19e86108b50
       created: 1774329887790
-      modified: 1774835179995
+      modified: 1776042847682
       sortKey: -1774329887790
-      description: |-
+      description: >
         # Usage
-        1. `POST`를 통해 생성
-        2. 단일 `GET`의 경우, 앞서 모두 `GET`한 디바이스 목록에서 `[0]`의 UUID를 참조하여 불러옴
-        3. `PUT`, `DELETE` 모두 단일 `GET`과 동일한 로직으로 작동
+
+        ### Body (`POST`, `PUT`)
+
+        - Network Type (`Enum`)
+        	<details>
+        		<summary markdown="span">Options</summary>
+        			<code>modem</code> | <code>wifi</code> | <code>ethernet</code> | <code>satellite</code>
+        	</details>
+        - Lifecycle (`Enum`)
+        	<details>
+        		<summary markdown="span">Options</summary>
+        			<code>provisioned</code> | <code>stabled</code> | <code>rebooting</code> | <code>updating</code> | <code>error</code>
+        	</details>
+        -	App Type (`Enum`)
+        	<details>
+        		<summary markdown="span">Options</summary>
+        			<code>factory</code> | <code>service</code>
+        	</details>
+        - Partition (`Enum`)
+        	<details>
+        		<summary markdown="span">Options</summary>
+        			<code>factory</code> | <code>ota_0</code> | <code>ota_1</code>
+        	</details>
     children:
       - url: "{{ _.base_url }}{{ _.path }}"
         name: /device
@@ -581,17 +620,31 @@ collection:
     meta:
       id: fld_bd18f9602c124e4fa03063d882f93efc
       created: 1774484852298
-      modified: 1774835182515
+      modified: 1776042902214
       sortKey: -1767460869046.5
       description: >-
         # Usage
 
-        1. `POST`를 통해 생성
+        ### Body (`POST`, `PUT`)
 
-        2. 단일 `GET`의 경우, 앞서 모두 `GET`한 디바이스 목록에서 `[0]`의 UUID를 참조하여 불러옴
+        - Connection (`Boolean`)
 
-        3. `PUT`, `DELETE` 모두 단일 `GET`과 동일한 로직으로 작동
-        	- _`PUT` 이벤트의 경우, 실제 `device`(옵션)와 `hardware-spec`(필수) 데이터(`id`, `PK`)가 존재해야 정상적인 이벤트 실행이 가능_
+        - Protocol (`Enum`)
+
+        	> Validated from hardware spec's protocols (GET `/hardware-spec/{hw_spec_uuid}`)
+        	
+        	<details>
+        		<summary markdown="span">Option</summary>
+        			<code>MODBUS_RTU</code> | <code>MODBUS_TCP</code> | <code>STANDARD_I2C</code> | <code>STANDARD_SPI</code> | <code>J1939</code> | <code>BINARY_IO</code> | <code>PULSE_CONTROL</code> | <code>RAW_SERIAL</code> | <code>SDI-12</code> | <code>TCP_IP</code> | <code>WEBSOCKET | ANALOG</code> | <code>NMEA0183</code> | <code>NMEA2000</code>
+        	</details>
+        - Interface (`Enum`)
+
+        	> Validated from hardware spec's interfaces (GET `/hardware-spec/{hw_spec_uuid}`)
+        	
+        	<details>
+        		<summary markdown="span">Option</summary>
+        			<code>RS485</code> | <code>RS422</code> | <code>RS232</code> | <code>SPI</code> | <code>I2C</code> | <code>CAN</code> | <code>GPIO</code> | <code>ETHERNET</code> | <code>SDI-12</code> | <code>ANALOG</code>
+        	</details>
     children:
       - url: "{{ _.base_url }}{{ _.path }}"
         name: /peripheral
@@ -634,7 +687,7 @@ collection:
         meta:
           id: req_1b953855073b47eeaadd5650ec8dbc41
           created: 1774484852300
-          modified: 1775724481204
+          modified: 1776042459393
           isPrivate: false
           description: ""
           sortKey: -1774329896696
@@ -655,7 +708,8 @@ collection:
             	"sw_version": "{% faker 'randomInt' %}",
             	"connection": "{{ _.connection_options[0] }}",
             	"install_date": {% now 'unix', '' %},
-            	"interface_type": "{% response 'body', 'req_b1b09e322a9843a1a0c44aeaaf7bf379', 'b64::JFswXS5pbnRlcmZhY2VzWzBd::46b', 'always', 60 %}",
+            	"protocol": "{% response 'body', 'req_b1b09e322a9843a1a0c44aeaaf7bf379', 'b64::JFswXS5wcm90b2NvbHNbMF0=::46b', 'always', 60 %}",
+            	"interface": "{% response 'body', 'req_b1b09e322a9843a1a0c44aeaaf7bf379', 'b64::JFswXS5pbnRlcmZhY2VzWzBd::46b', 'always', 60 %}",
             	"interface_conf": {
             		"baudrate": 9600,
             		"function_code": "0x03",
@@ -722,7 +776,7 @@ collection:
         meta:
           id: req_6590727d14b54b52ab58ab3ea4f800cd
           created: 1774484852300
-          modified: 1775781049249
+          modified: 1775803103598
           isPrivate: false
           description: ""
           sortKey: -1774329896396
@@ -743,7 +797,8 @@ collection:
               "sw_version": "{% faker 'randomInt' %}",
             	"connection": "{{ _.connection_options[0] }}",
             	"install_date": {% now 'unix', '' %},
-            	"interface_type": "{% response 'body', 'req_b1b09e322a9843a1a0c44aeaaf7bf379', 'b64::JFswXS5pbnRlcmZhY2VzWzFd::46b', 'always', 60 %}",
+            	"protocol": "{% response 'body', 'req_b1b09e322a9843a1a0c44aeaaf7bf379', 'b64::JFswXS5wcm90b2NvbHNbMV0=::46b', 'always', 60 %}",
+            	"interface": "{% response 'body', 'req_b1b09e322a9843a1a0c44aeaaf7bf379', 'b64::JFswXS5pbnRlcmZhY2VzWzFd::46b', 'always', 60 %}",
               "interface_conf": {
                 "baudrate": 9600,
                 "function_code": "0x03",
