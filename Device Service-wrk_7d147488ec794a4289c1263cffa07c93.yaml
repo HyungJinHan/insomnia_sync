@@ -40,11 +40,11 @@ collection:
         	</details>
     children:
       - url: "{{ _.base_url }}{{ _.path }}"
-        name: /hardware-spec
+        name: /hardware-specs
         meta:
           id: req_1e22b9eab8364060a87ee033e72bbfbd
           created: 1774328038756
-          modified: 1775794994527
+          modified: 1776134334614
           isPrivate: false
           description: ""
           sortKey: -1774328204441
@@ -107,11 +107,11 @@ collection:
             store: true
           rebuildPath: true
       - url: "{{ _.base_url }}{{ _.path }}"
-        name: /hardware-spec
+        name: /hardware-specs
         meta:
           id: req_b1b09e322a9843a1a0c44aeaaf7bf379
           created: 1774328216520
-          modified: 1774924538121
+          modified: 1776134337982
           isPrivate: false
           description: ""
           sortKey: -1774328204341
@@ -145,11 +145,11 @@ collection:
       - url: "{{ _.base_url }}{{ _.path }}/{% response 'body',
           'req_b1b09e322a9843a1a0c44aeaaf7bf379', 'b64::JFswXS51dWlk::46b',
           'always', 60 %}"
-        name: /hardware-spec/{hw_spec_uuid}
+        name: /hardware-specs/{hw_spec_uuid}
         meta:
           id: req_13bb643f1c2e4388884f32e91dac9868
           created: 1774337274043
-          modified: 1775722991706
+          modified: 1776134340972
           isPrivate: false
           description: ""
           sortKey: -1768883695291.5
@@ -183,11 +183,11 @@ collection:
       - url: "{{ _.base_url }}{{ _.path }}/{% response 'body',
           'req_b1b09e322a9843a1a0c44aeaaf7bf379', 'b64::JFswXS51dWlk::46b',
           'always', 60 %}"
-        name: /hardware-spec/{hw_spec_uuid}
+        name: /hardware-specs/{hw_spec_uuid}
         meta:
           id: req_18f02bb2927a4a7d9b56d370cac345e8
           created: 1774341923197
-          modified: 1775795015822
+          modified: 1776134346437
           isPrivate: false
           description: ""
           sortKey: -1768883695191.5
@@ -252,11 +252,11 @@ collection:
       - url: "{{ _.base_url }}{{ _.path }}/{% response 'body',
           'req_b1b09e322a9843a1a0c44aeaaf7bf379', 'b64::JFsxXS51dWlk::46b',
           'always', 60 %}"
-        name: /hardware-spec/{hw_spec_uuid}
+        name: /hardware-specs/{hw_spec_uuid}
         meta:
           id: req_1e7103dcf2004c269b4e34f8953961aa
           created: 1774342140668
-          modified: 1775803132444
+          modified: 1776134351442
           isPrivate: false
           description: ""
           sortKey: -1768883695091.5
@@ -290,11 +290,11 @@ collection:
       - url: "{{ _.base_url }}{{ _.path }}/{% response 'body',
           'req_b1b09e322a9843a1a0c44aeaaf7bf379', 'b64::JFswXS51dWlk::46b',
           'always', 60 %}/peripherals"
-        name: /hardware-spec/{hw_spec_uuid}/peripherals
+        name: /hardware-specs/{hw_spec_uuid}/peripherals
         meta:
           id: req_364926c6e8e34eada57aa3158f1cb1bf
           created: 1775021680595
-          modified: 1775722835958
+          modified: 1776134343826
           isPrivate: false
           description: ""
           sortKey: -1768883695241.5
@@ -363,11 +363,11 @@ collection:
         	</details>
     children:
       - url: "{{ _.base_url }}{{ _.path }}"
-        name: /device
+        name: /devices
         meta:
           id: req_7d294459fc46494699b8ef49e8b25925
           created: 1774329896596
-          modified: 1774924551473
+          modified: 1776134355081
           isPrivate: false
           description: ""
           sortKey: -1774329896596
@@ -399,11 +399,11 @@ collection:
             store: true
           rebuildPath: true
       - url: "{{ _.base_url }}{{ _.path }}"
-        name: /device
+        name: /devices
         meta:
           id: req_faab4bb3abcb4cf3b57a359f11b4a13b
           created: 1774330180773
-          modified: 1775724117264
+          modified: 1776134353384
           isPrivate: false
           description: ""
           sortKey: -1774329896696
@@ -454,11 +454,11 @@ collection:
       - url: "{{ _.base_url }}{{ _.path }}/{% response 'body',
           'req_7d294459fc46494699b8ef49e8b25925', 'b64::JFswXS51dWlk::46b',
           'always', 60 %}"
-        name: /device/{device_uuid}
+        name: /devices/{device_uuid}
         meta:
           id: req_7b90e773e2e74669a2fb9b034b947c11
           created: 1774337166090
-          modified: 1776058438667
+          modified: 1776134360745
           isPrivate: false
           description: ""
           sortKey: -1774329896496
@@ -479,11 +479,11 @@ collection:
       - url: "{{ _.base_url }}{{ _.path }}/{% response 'body',
           'req_7d294459fc46494699b8ef49e8b25925', 'b64::JFswXS51dWlk::46b',
           'always', 60 %}"
-        name: /device/{device_uuid}
+        name: /devices/{device_uuid}
         meta:
           id: req_08ba8177b80447f3b469e776087ce34d
           created: 1774342335697
-          modified: 1775724237084
+          modified: 1776134363056
           isPrivate: false
           description: ""
           sortKey: -1774329896396
@@ -534,11 +534,11 @@ collection:
       - url: "{{ _.base_url }}{{ _.path }}/{% response 'body',
           'req_7d294459fc46494699b8ef49e8b25925', 'b64::JFswXS51dWlk::46b',
           'always', 60 %}"
-        name: /device/{device_uuid}
+        name: /devices/{device_uuid}
         meta:
           id: req_39680db875b14f7fb700e1fcf4c3d49c
           created: 1774400625526
-          modified: 1776058518031
+          modified: 1776134368236
           isPrivate: false
           description: ""
           sortKey: -1774329050418.5
@@ -559,11 +559,11 @@ collection:
       - url: "{{ _.base_url }}{{ _.path }}/{% response 'body',
           'req_7d294459fc46494699b8ef49e8b25925',
           'b64::JFswXS50aGluZ19uYW1l::46b', 'always', 60 %}"
-        name: /device/{thing_name}
+        name: /devices/{thing_name}
         meta:
           id: req_ed2a2fb4d3e944a299c89761c96dbeee
           created: 1774503245234
-          modified: 1775724238894
+          modified: 1776134365714
           isPrivate: false
           description: ""
           sortKey: -1774329473407.25
@@ -599,6 +599,42 @@ collection:
         headers:
           - name: Content-Type
             value: application/json
+          - name: User-Agent
+            value: insomnia/12.4.0
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.base_url }}{{ _.path }}/jcia012/shadow/network"
+        name: /devices/{device_id}/shadow/{shadow_name}
+        meta:
+          id: req_3d6dc332e2f14126aaba22d30665299c
+          created: 1776134295515
+          modified: 1776214706512
+          isPrivate: false
+          description: ""
+          sortKey: -1774329896446
+        method: GET
+        parameters:
+          - name: range
+            value: "[0, 100]"
+            description: ""
+            disabled: true
+          - name: filter
+            value: '{"lifecycle": "provisioned"}'
+            description: ""
+            disabled: true
+          - name: sort
+            value: ""
+            description: ""
+            disabled: true
+        headers:
           - name: User-Agent
             value: insomnia/12.4.0
             description: ""
@@ -647,11 +683,11 @@ collection:
         	</details>
     children:
       - url: "{{ _.base_url }}{{ _.path }}"
-        name: /peripheral
+        name: /peripherals
         meta:
           id: req_cc95b96e776e49f4b59b6cca2f85c6c6
           created: 1774484852299
-          modified: 1776058564235
+          modified: 1776134372191
           isPrivate: false
           description: ""
           sortKey: -1774329896596
@@ -683,11 +719,11 @@ collection:
             store: true
           rebuildPath: true
       - url: "{{ _.base_url }}{{ _.path }}"
-        name: /peripheral
+        name: /peripherals
         meta:
           id: req_1b953855073b47eeaadd5650ec8dbc41
           created: 1774484852300
-          modified: 1776042459393
+          modified: 1776134370400
           isPrivate: false
           description: ""
           sortKey: -1774329896696
@@ -747,11 +783,11 @@ collection:
       - url: "{{ _.base_url }}{{ _.path }}/{% response 'body',
           'req_cc95b96e776e49f4b59b6cca2f85c6c6', 'b64::JFswXS51dWlk::46b',
           'always', 60 %}"
-        name: /peripheral/{peripheral_uuid}
+        name: /peripherals/{peripheral_uuid}
         meta:
           id: req_5a5e85d058194b56b35f5998bddf76cf
           created: 1774484852300
-          modified: 1774499430692
+          modified: 1776134374681
           isPrivate: false
           description: ""
           sortKey: -1774329896496
@@ -772,11 +808,11 @@ collection:
       - url: "{{ _.base_url }}{{ _.path }}/{% response 'body',
           'req_cc95b96e776e49f4b59b6cca2f85c6c6', 'b64::JFswXS51dWlk::46b',
           'always', 60 %}"
-        name: /peripheral/{peripheral_uuid}
+        name: /peripherals/{peripheral_uuid}
         meta:
           id: req_6590727d14b54b52ab58ab3ea4f800cd
           created: 1774484852300
-          modified: 1775803103598
+          modified: 1776134377123
           isPrivate: false
           description: ""
           sortKey: -1774329896396
@@ -833,14 +869,12 @@ collection:
             send: true
             store: true
           rebuildPath: true
-      - url: "{{ _.base_url }}{{ _.path }}/{% response 'body',
-          'req_cc95b96e776e49f4b59b6cca2f85c6c6', 'b64::JFswXS51dWlk::46b',
-          'always', 60 %}"
-        name: /peripheral/{peripheral_uuid}
+      - url: "{{ _.base_url }}{{ _.path }}/{device_id}"
+        name: /peripherals/{peripheral_uuid}
         meta:
           id: req_e9cf01345e4d4651b90fb49d864b9756
           created: 1774484852301
-          modified: 1774499453676
+          modified: 1776134407733
           isPrivate: false
           description: ""
           sortKey: -1774329050418.5
