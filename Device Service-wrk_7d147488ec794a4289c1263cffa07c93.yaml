@@ -11,7 +11,7 @@ collection:
     meta:
       id: fld_2bdaf6705bb245e282d34314011a2459
       created: 1774328191829
-      modified: 1776042813438
+      modified: 1776216486153
       sortKey: -1774329887890
       description: >-
         # Usage
@@ -611,12 +611,12 @@ collection:
             send: true
             store: true
           rebuildPath: true
-      - url: "{{ _.base_url }}{{ _.path }}/jcia012/shadow/network"
+      - url: "{{ _.base_url }}{{ _.path }}/jcia01s/shadow/{{ _.shadow_name[0] }}"
         name: /devices/{device_id}/shadow/{shadow_name}
         meta:
           id: req_3d6dc332e2f14126aaba22d30665299c
           created: 1776134295515
-          modified: 1776214706512
+          modified: 1776303958358
           isPrivate: false
           description: ""
           sortKey: -1774329896446
@@ -908,7 +908,7 @@ environments:
   meta:
     id: env_6668099b5e1d4cf4aa78bf5503d76b87
     created: 1774328032068
-    modified: 1775787031946
+    modified: 1776303676854
     isPrivate: false
   data:
     base_url: http://172.30.1.65:8080
@@ -969,3 +969,11 @@ environments:
     connection_options:
       - false
       - true
+    shadow_name:
+      - status
+      - device
+      - network
+      - inventory
+      - telemetry
+      - config
+      - equipment
