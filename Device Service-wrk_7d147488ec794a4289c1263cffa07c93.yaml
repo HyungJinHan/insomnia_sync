@@ -611,12 +611,12 @@ collection:
             send: true
             store: true
           rebuildPath: true
-      - url: "{{ _.base_url }}{{ _.path }}/jcia01s/shadow/{{ _.shadow_name[0] }}"
-        name: /devices/{device_id}/shadow/{shadow_name}
+      - url: "{{ _.base_url }}{{ _.path }}/jcia01/shadow/{{ _.shadow_name[0] }}"
+        name: /devices/{thing_name}/shadow/{shadow_name}
         meta:
           id: req_3d6dc332e2f14126aaba22d30665299c
           created: 1776134295515
-          modified: 1776303958358
+          modified: 1776306784856
           isPrivate: false
           description: ""
           sortKey: -1774329896446
