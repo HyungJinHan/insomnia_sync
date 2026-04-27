@@ -611,12 +611,12 @@ collection:
             send: true
             store: true
           rebuildPath: true
-      - url: "{{ _.base_url }}{{ _.path }}/jcia01/shadow/{{ _.shadow_name[0] }}"
+      - url: "{{ _.base_url }}{{ _.path }}/mecs01/shadow/{{ _.shadow_name[0] }}"
         name: /devices/{thing_name}/shadow/{shadow_name}
         meta:
           id: req_3d6dc332e2f14126aaba22d30665299c
           created: 1776134295515
-          modified: 1776306784856
+          modified: 1776825312695
           isPrivate: false
           description: ""
           sortKey: -1774329896446
@@ -908,7 +908,7 @@ environments:
   meta:
     id: env_6668099b5e1d4cf4aa78bf5503d76b87
     created: 1774328032068
-    modified: 1776303676854
+    modified: 1777270694172
     isPrivate: false
   data:
     base_url: http://172.30.1.65:8080
@@ -916,7 +916,7 @@ environments:
       - sensor
       - actuator
       - controller
-      - gateway
+      - sonde
       - meter
     hw_spec_interfaces_options:
       - RS485
@@ -927,20 +927,20 @@ environments:
       - CAN
       - GPIO
       - ETHERNET
-      - SDI-12
+      - SDI_12
       - ANALOG
     hw_spec_protocols_options:
       - MODBUS_RTU
+      - MODBUS_ASCII
       - MODBUS_TCP
       - STANDARD_I2C
       - STANDARD_SPI
+      - EXTENDED_SPI
       - J1939
       - BINARY_IO
       - PULSE_CONTROL
       - RAW_SERIAL
-      - SDI-12
-      - TCP_IP
-      - WEBSOCKET
+      - SDI_12
       - ANALOG
       - NMEA0183
       - NMEA2000
