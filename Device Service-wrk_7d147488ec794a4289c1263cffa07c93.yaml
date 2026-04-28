@@ -44,7 +44,7 @@ collection:
         meta:
           id: req_1e22b9eab8364060a87ee033e72bbfbd
           created: 1774328038756
-          modified: 1776134334614
+          modified: 1777341809209
           isPrivate: false
           description: ""
           sortKey: -1774328204441
@@ -59,7 +59,6 @@ collection:
               "category": "{{ _.hw_spec_category_options[0] }}",
               "interfaces": ["{{ _.hw_spec_interfaces_options[0] }}", "{{ _.hw_spec_interfaces_options[2] }}", "{{ _.hw_spec_interfaces_options[3] }}"],
               "protocols": ["{{ _.hw_spec_protocols_options[0] }}", "{{ _.hw_spec_protocols_options[1] }}"],
-              "hw_version": "{% faker 'randomInt' %}",
               "direction": "{{ _.hw_spec_direction_options[2] }}",
               "capabilities": {
                 "certification": [
@@ -187,7 +186,7 @@ collection:
         meta:
           id: req_18f02bb2927a4a7d9b56d370cac345e8
           created: 1774341923197
-          modified: 1776134346437
+          modified: 1777341823290
           isPrivate: false
           description: ""
           sortKey: -1768883695191.5
@@ -202,7 +201,6 @@ collection:
               "category": "{{ _.hw_spec_category_options[0] }}",
               "interfaces": ["{{ _.hw_spec_interfaces_options[0] }}", "{{ _.hw_spec_interfaces_options[2] }}", "{{ _.hw_spec_interfaces_options[3] }}"],
               "protocols": ["{{ _.hw_spec_protocols_options[0] }}", "{{ _.hw_spec_protocols_options[1] }}"],
-              "hw_version": "{% faker 'randomInt' %}",
               "direction": "{{ _.hw_spec_direction_options[2] }}",
               "capabilities": {
                 "certification": [
