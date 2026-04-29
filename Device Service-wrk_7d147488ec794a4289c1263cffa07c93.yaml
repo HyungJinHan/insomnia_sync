@@ -44,7 +44,7 @@ collection:
         meta:
           id: req_1e22b9eab8364060a87ee033e72bbfbd
           created: 1774328038756
-          modified: 1777341809209
+          modified: 1777439454252
           isPrivate: false
           description: ""
           sortKey: -1774328204441
@@ -53,9 +53,9 @@ collection:
           mimeType: application/json
           text: >-
             {
-              "vendor": "{% faker 'randomCompanyName' %}",
-              "series": "{% faker 'randomWord' %}",
-              "model": "{% faker 'randomWord' %}",
+              "vendor": "{{ _.hw_spec_seiral_options.AQUALABO.vendor_name }}",
+              "series": "{{ _.hw_spec_seiral_options.AQUALABO.PONSEL.series_name }}",
+              "model": "{{ _.hw_spec_seiral_options.AQUALABO.PONSEL.model.OPTOD }}",
               "category": "{{ _.hw_spec_category_options[0] }}",
               "interfaces": ["{{ _.hw_spec_interfaces_options[0] }}", "{{ _.hw_spec_interfaces_options[2] }}", "{{ _.hw_spec_interfaces_options[3] }}"],
               "protocols": ["{{ _.hw_spec_protocols_options[0] }}", "{{ _.hw_spec_protocols_options[1] }}"],
@@ -186,7 +186,7 @@ collection:
         meta:
           id: req_18f02bb2927a4a7d9b56d370cac345e8
           created: 1774341923197
-          modified: 1777341823290
+          modified: 1777439414554
           isPrivate: false
           description: ""
           sortKey: -1768883695191.5
@@ -195,9 +195,9 @@ collection:
           mimeType: application/json
           text: >-
             {
-              "vendor": "{% faker 'randomCompanyName' %}",
-              "series": "{% faker 'randomWord' %}",
-              "model": "{% faker 'randomWord' %}",
+              "vendor": "{{ _.hw_spec_seiral_options.AQUALABO.vendor_name }}",
+              "series": "{{ _.hw_spec_seiral_options.AQUALABO.PONSEL.series_name }}",
+              "model": "{{ _.hw_spec_seiral_options.AQUALABO.PONSEL.model.OPTOD }}",
               "category": "{{ _.hw_spec_category_options[0] }}",
               "interfaces": ["{{ _.hw_spec_interfaces_options[0] }}", "{{ _.hw_spec_interfaces_options[2] }}", "{{ _.hw_spec_interfaces_options[3] }}"],
               "protocols": ["{{ _.hw_spec_protocols_options[0] }}", "{{ _.hw_spec_protocols_options[1] }}"],
@@ -906,10 +906,108 @@ environments:
   meta:
     id: env_6668099b5e1d4cf4aa78bf5503d76b87
     created: 1774328032068
-    modified: 1777270694172
+    modified: 1777439114496
     isPrivate: false
   data:
     base_url: http://172.30.1.65:8080
+    hw_spec_seiral_options:
+      AQUALABO:
+        vendor_name: AQUALABO
+        PONSEL:
+          series_name: PONSEL
+          model:
+            OPTOD: OPTOD
+            PH: PH
+            C4E: C4E
+            TURBI: TURBI
+            CTZ: CTZ
+            TSS: TSS
+            STACSENSE: STACSENSE
+      INSITU:
+        vendor_name: INSITU
+        AQUATROLL:
+          series_name: AQUATROLL
+          model:
+            "400": "400"
+            "500": "500"
+            "600": "600"
+            "700": "700"
+            "800": "800"
+      SEEED_STUDIO:
+        vendor_name: SEEED_STUDIO
+        SENSECAP:
+          series_name: SENSECAP
+          model:
+            S200: S200
+            S500: S500
+            S700: S700
+            S700A: S700A
+            S700B: S700B
+            S700C: S700C
+            S800: S800
+            S1000: S1000
+      APOGEE:
+        vendor_name: APOGEE
+        SQ500:
+          series_name: SQ500
+          model:
+            SQ522S: SQ522S
+      DIWELL:
+        vendor_name: DIWELL
+        CT_G:
+          series_name: CT_G
+          model:
+            CT100G: CT100G
+      CWT:
+        vendor_name: CWT
+        series:
+          TH:
+            series_name: TH
+            model:
+              01S: 01S
+              02S: 02S
+              03S: 03S
+              03S_M: 03S_M
+              03S_H: 03S_H
+              03S_HM: 03S_HM
+              04S: 04S
+              05S: 05S
+          CO:
+            series_name: CO
+            model:
+              100_S: 100_S
+              100_SD: 100_SD
+              200_S: 200_S
+              200_SD: 200_SD
+              1K_S: 1K_S
+              1K_SD: 1K_SD
+              2K_S: 2K_S
+              2K_SD: 2K_SD
+              THCO_1K: THCO_1K
+              THCO_2K: THCO_2K
+          O3:
+            series_name: O3
+            model:
+              10_S: 10_S
+              10_SD: 10_SD
+              100_S: 100_S
+              100_SD: 100_SD
+              THO3_10: THO3_10
+              THO3_100: THO3_100
+      ELT:
+        vendor_name: ELT
+        CO_S:
+          series_name: CO_S
+          model:
+            S20_3V: S20_3V
+            S20_5V: S20_5V
+      EPEVER:
+        vendor_name: EPEVER
+        TRACER_BP:
+          series_name: TRACER_BP
+          model:
+            "2606": "2606"
+            "3910": "3910"
     hw_spec_category_options:
       - sensor
       - actuator
