@@ -44,7 +44,7 @@ collection:
         meta:
           id: req_1e22b9eab8364060a87ee033e72bbfbd
           created: 1774328038756
-          modified: 1777439454252
+          modified: 1777453305102
           isPrivate: false
           description: ""
           sortKey: -1774328204441
@@ -55,7 +55,7 @@ collection:
             {
               "vendor": "{{ _.hw_spec_seiral_options.AQUALABO.vendor_name }}",
               "series": "{{ _.hw_spec_seiral_options.AQUALABO.PONSEL.series_name }}",
-              "model": "{{ _.hw_spec_seiral_options.AQUALABO.PONSEL.model.OPTOD }}",
+              "model": "{{ _.hw_spec_seiral_options.CWT.series.CO.model['100_SD'] }}",
               "category": "{{ _.hw_spec_category_options[0] }}",
               "interfaces": ["{{ _.hw_spec_interfaces_options[0] }}", "{{ _.hw_spec_interfaces_options[2] }}", "{{ _.hw_spec_interfaces_options[3] }}"],
               "protocols": ["{{ _.hw_spec_protocols_options[0] }}", "{{ _.hw_spec_protocols_options[1] }}"],
@@ -186,7 +186,7 @@ collection:
         meta:
           id: req_18f02bb2927a4a7d9b56d370cac345e8
           created: 1774341923197
-          modified: 1777439414554
+          modified: 1777452755417
           isPrivate: false
           description: ""
           sortKey: -1768883695191.5
@@ -197,7 +197,7 @@ collection:
             {
               "vendor": "{{ _.hw_spec_seiral_options.AQUALABO.vendor_name }}",
               "series": "{{ _.hw_spec_seiral_options.AQUALABO.PONSEL.series_name }}",
-              "model": "{{ _.hw_spec_seiral_options.AQUALABO.PONSEL.model.OPTOD }}",
+              "model": "{{ _.hw_spec_seiral_options.AQUALABO.PONSEL.model.PH }}",
               "category": "{{ _.hw_spec_category_options[0] }}",
               "interfaces": ["{{ _.hw_spec_interfaces_options[0] }}", "{{ _.hw_spec_interfaces_options[2] }}", "{{ _.hw_spec_interfaces_options[3] }}"],
               "protocols": ["{{ _.hw_spec_protocols_options[0] }}", "{{ _.hw_spec_protocols_options[1] }}"],
@@ -906,7 +906,7 @@ environments:
   meta:
     id: env_6668099b5e1d4cf4aa78bf5503d76b87
     created: 1774328032068
-    modified: 1777439114496
+    modified: 1777453051987
     isPrivate: false
   data:
     base_url: http://172.30.1.65:8080
