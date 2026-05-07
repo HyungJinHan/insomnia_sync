@@ -44,7 +44,7 @@ collection:
         meta:
           id: req_1e22b9eab8364060a87ee033e72bbfbd
           created: 1774328038756
-          modified: 1777453305102
+          modified: 1778057258048
           isPrivate: false
           description: ""
           sortKey: -1774328204441
@@ -53,9 +53,9 @@ collection:
           mimeType: application/json
           text: >-
             {
-              "vendor": "{{ _.hw_spec_seiral_options.AQUALABO.vendor_name }}",
-              "series": "{{ _.hw_spec_seiral_options.AQUALABO.PONSEL.series_name }}",
-              "model": "{{ _.hw_spec_seiral_options.CWT.series.CO.model['100_SD'] }}",
+              "vendor": "{{ _.hw_spec_seiral_options.APOGEE.vendor_name }}",
+              "series": "{{ _.hw_spec_seiral_options.APOGEE.SQ500.series_name }}",
+              "model": "{{ _.hw_spec_seiral_options.CWT.series.CO.model['2K_SD'] }}",
               "category": "{{ _.hw_spec_category_options[0] }}",
               "interfaces": ["{{ _.hw_spec_interfaces_options[0] }}", "{{ _.hw_spec_interfaces_options[2] }}", "{{ _.hw_spec_interfaces_options[3] }}"],
               "protocols": ["{{ _.hw_spec_protocols_options[0] }}", "{{ _.hw_spec_protocols_options[1] }}"],
@@ -186,7 +186,7 @@ collection:
         meta:
           id: req_18f02bb2927a4a7d9b56d370cac345e8
           created: 1774341923197
-          modified: 1777452755417
+          modified: 1778041855857
           isPrivate: false
           description: ""
           sortKey: -1768883695191.5
@@ -196,7 +196,7 @@ collection:
           text: >-
             {
               "vendor": "{{ _.hw_spec_seiral_options.AQUALABO.vendor_name }}",
-              "series": "{{ _.hw_spec_seiral_options.AQUALABO.PONSEL.series_name }}",
+              "series": "{{ _.shadow_name[2] }}",
               "model": "{{ _.hw_spec_seiral_options.AQUALABO.PONSEL.model.PH }}",
               "category": "{{ _.hw_spec_category_options[0] }}",
               "interfaces": ["{{ _.hw_spec_interfaces_options[0] }}", "{{ _.hw_spec_interfaces_options[2] }}", "{{ _.hw_spec_interfaces_options[3] }}"],
@@ -401,7 +401,7 @@ collection:
         meta:
           id: req_faab4bb3abcb4cf3b57a359f11b4a13b
           created: 1774330180773
-          modified: 1776134353384
+          modified: 1778129480666
           isPrivate: false
           description: ""
           sortKey: -1774329896696
@@ -412,6 +412,7 @@ collection:
             {
               "serial_number": "{% faker 'guid' %}",
               "thing_name": "{% faker 'randomWord' %}",
+              "gg_id": "ODN-GG-OFC-AISVR-DEV",
               "fw_version": "{% faker 'randomInt' %}",
             	"app_type": "{{ _.device_app_type_options[0] }}",
             	"partition": "{{ _.device_partition_options[0] }}",
@@ -481,7 +482,7 @@ collection:
         meta:
           id: req_08ba8177b80447f3b469e776087ce34d
           created: 1774342335697
-          modified: 1776134363056
+          modified: 1778129490165
           isPrivate: false
           description: ""
           sortKey: -1774329896396
@@ -492,6 +493,7 @@ collection:
             {
               "serial_number": "{% faker 'guid' %}",
               "thing_name": "{% faker 'randomWord' %}",
+            	"gg_id": "ODN-GG-OFC-AISVR-DEV",
               "fw_version": "{% faker 'randomInt' %}",
             	"app_type": "{{ _.device_app_type_options[0] }}",
             	"partition": "{{ _.device_partition_options[0] }}",
@@ -561,7 +563,7 @@ collection:
         meta:
           id: req_ed2a2fb4d3e944a299c89761c96dbeee
           created: 1774503245234
-          modified: 1776134365714
+          modified: 1778129494719
           isPrivate: false
           description: ""
           sortKey: -1774329473407.25
@@ -572,6 +574,7 @@ collection:
             {
               "serial_number": "{% faker 'guid' %}",
               "thing_name": "{% faker 'randomWord' %}",
+            	"gg_id": "ODN-GG-OFC-AISVR-DEV",
               "fw_version": "{% faker 'randomInt' %}",
             	"app_type": "{{ _.device_app_type_options[0] }}",
             	"partition": "{{ _.device_partition_options[0] }}",
@@ -721,7 +724,7 @@ collection:
         meta:
           id: req_1b953855073b47eeaadd5650ec8dbc41
           created: 1774484852300
-          modified: 1776134370400
+          modified: 1778044853246
           isPrivate: false
           description: ""
           sortKey: -1774329896696
