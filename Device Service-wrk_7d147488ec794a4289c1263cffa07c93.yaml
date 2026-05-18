@@ -44,7 +44,7 @@ collection:
         meta:
           id: req_1e22b9eab8364060a87ee033e72bbfbd
           created: 1774328038756
-          modified: 1778057258048
+          modified: 1779091406856
           isPrivate: false
           description: ""
           sortKey: -1774328204441
@@ -56,10 +56,10 @@ collection:
               "vendor": "{{ _.hw_spec_seiral_options.APOGEE.vendor_name }}",
               "series": "{{ _.hw_spec_seiral_options.APOGEE.SQ500.series_name }}",
               "model": "{{ _.hw_spec_seiral_options.CWT.series.CO.model['2K_SD'] }}",
-              "category": "{{ _.hw_spec_category_options[0] }}",
-              "interfaces": ["{{ _.hw_spec_interfaces_options[0] }}", "{{ _.hw_spec_interfaces_options[2] }}", "{{ _.hw_spec_interfaces_options[3] }}"],
-              "protocols": ["{{ _.hw_spec_protocols_options[0] }}", "{{ _.hw_spec_protocols_options[1] }}"],
-              "direction": "{{ _.hw_spec_direction_options[2] }}",
+              "category": "{{ _.hw_spec_category_options[0].sensor }}",
+              "interfaces": ["{{ _.hw_spec_interfaces_options[0].RS485 }}", "{{ _.hw_spec_interfaces_options[1].RS422 }}", "{{ _.hw_spec_interfaces_options[2].RS232 }}"],
+              "protocols": ["{{ _.hw_spec_protocols_options[0].MODBUS_RTU }}", "{{ _.hw_spec_protocols_options[1].MODBUS_ASCII }}"],
+              "direction": "{{ _.hw_spec_direction_options[2].bidirectional }}",
               "capabilities": {
                 "certification": [
                   "CE",
@@ -186,7 +186,7 @@ collection:
         meta:
           id: req_18f02bb2927a4a7d9b56d370cac345e8
           created: 1774341923197
-          modified: 1778041855857
+          modified: 1779091416934
           isPrivate: false
           description: ""
           sortKey: -1768883695191.5
@@ -195,13 +195,13 @@ collection:
           mimeType: application/json
           text: >-
             {
-              "vendor": "{{ _.hw_spec_seiral_options.AQUALABO.vendor_name }}",
-              "series": "{{ _.shadow_name[2] }}",
-              "model": "{{ _.hw_spec_seiral_options.AQUALABO.PONSEL.model.PH }}",
-              "category": "{{ _.hw_spec_category_options[0] }}",
-              "interfaces": ["{{ _.hw_spec_interfaces_options[0] }}", "{{ _.hw_spec_interfaces_options[2] }}", "{{ _.hw_spec_interfaces_options[3] }}"],
-              "protocols": ["{{ _.hw_spec_protocols_options[0] }}", "{{ _.hw_spec_protocols_options[1] }}"],
-              "direction": "{{ _.hw_spec_direction_options[2] }}",
+              "vendor": "{{ _.hw_spec_seiral_options.APOGEE.vendor_name }}",
+              "series": "{{ _.hw_spec_seiral_options.APOGEE.SQ500.series_name }}",
+              "model": "{{ _.hw_spec_seiral_options.CWT.series.CO.model['2K_SD'] }}",
+              "category": "{{ _.hw_spec_category_options[0].sensor }}",
+              "interfaces": ["{{ _.hw_spec_interfaces_options[0].RS485 }}", "{{ _.hw_spec_interfaces_options[1].RS422 }}", "{{ _.hw_spec_interfaces_options[2].RS232 }}"],
+              "protocols": ["{{ _.hw_spec_protocols_options[0].MODBUS_RTU }}", "{{ _.hw_spec_protocols_options[1].MODBUS_ASCII }}"],
+              "direction": "{{ _.hw_spec_direction_options[2].bidirectional }}",
               "capabilities": {
                 "certification": [
                   "CE",
@@ -401,7 +401,7 @@ collection:
         meta:
           id: req_faab4bb3abcb4cf3b57a359f11b4a13b
           created: 1774330180773
-          modified: 1778129480666
+          modified: 1779091583487
           isPrivate: false
           description: ""
           sortKey: -1774329896696
@@ -414,8 +414,8 @@ collection:
               "thing_name": "{% faker 'randomWord' %}",
               "gg_id": "ODN-GG-OFC-AISVR-DEV",
               "fw_version": "{% faker 'randomInt' %}",
-            	"app_type": "{{ _.device_app_type_options[0] }}",
-            	"partition": "{{ _.device_partition_options[0] }}",
+            	"app_type": "{{ _.device_app_type_options[0].factory }}",
+            	"partition": "{{ _.device_partition_options[0].factory }}",
             	"network_type": "{{ _.device_network_type_options[0] }}",
               "network_info": {
                 "imei": "861005074353795",
@@ -430,7 +430,7 @@ collection:
                   "rssnr": 22
                 }
             	},
-              "lifecycle": "{{ _.device_lifecycle_options[0] }}",
+              "lifecycle": "{{ _.device_lifecycle_options[0].provisioned }}",
               "connection": "{{ _.connection_options[0] }}",
               "install_date": {% now 'unix', '' %},
               "startup_time": {% now 'unix', '' %}
@@ -482,7 +482,7 @@ collection:
         meta:
           id: req_08ba8177b80447f3b469e776087ce34d
           created: 1774342335697
-          modified: 1778129490165
+          modified: 1779091594958
           isPrivate: false
           description: ""
           sortKey: -1774329896396
@@ -493,10 +493,10 @@ collection:
             {
               "serial_number": "{% faker 'guid' %}",
               "thing_name": "{% faker 'randomWord' %}",
-            	"gg_id": "ODN-GG-OFC-AISVR-DEV",
+              "gg_id": "ODN-GG-OFC-AISVR-DEV",
               "fw_version": "{% faker 'randomInt' %}",
-            	"app_type": "{{ _.device_app_type_options[0] }}",
-            	"partition": "{{ _.device_partition_options[0] }}",
+            	"app_type": "{{ _.device_app_type_options[0].factory }}",
+            	"partition": "{{ _.device_partition_options[0].factory }}",
             	"network_type": "{{ _.device_network_type_options[0] }}",
               "network_info": {
                 "imei": "861005074353795",
@@ -511,7 +511,7 @@ collection:
                   "rssnr": 22
                 }
             	},
-              "lifecycle": "{{ _.device_lifecycle_options[0] }}",
+              "lifecycle": "{{ _.device_lifecycle_options[0].provisioned }}",
               "connection": "{{ _.connection_options[0] }}",
               "install_date": {% now 'unix', '' %},
               "startup_time": {% now 'unix', '' %}
@@ -563,7 +563,7 @@ collection:
         meta:
           id: req_ed2a2fb4d3e944a299c89761c96dbeee
           created: 1774503245234
-          modified: 1778129494719
+          modified: 1779091591281
           isPrivate: false
           description: ""
           sortKey: -1774329473407.25
@@ -574,10 +574,10 @@ collection:
             {
               "serial_number": "{% faker 'guid' %}",
               "thing_name": "{% faker 'randomWord' %}",
-            	"gg_id": "ODN-GG-OFC-AISVR-DEV",
+              "gg_id": "ODN-GG-OFC-AISVR-DEV",
               "fw_version": "{% faker 'randomInt' %}",
-            	"app_type": "{{ _.device_app_type_options[0] }}",
-            	"partition": "{{ _.device_partition_options[0] }}",
+            	"app_type": "{{ _.device_app_type_options[0].factory }}",
+            	"partition": "{{ _.device_partition_options[0].factory }}",
             	"network_type": "{{ _.device_network_type_options[0] }}",
               "network_info": {
                 "imei": "861005074353795",
@@ -592,7 +592,7 @@ collection:
                   "rssnr": 22
                 }
             	},
-              "lifecycle": "{{ _.device_lifecycle_options[0] }}",
+              "lifecycle": "{{ _.device_lifecycle_options[0].provisioned }}",
               "connection": "{{ _.connection_options[0] }}",
               "install_date": {% now 'unix', '' %},
               "startup_time": {% now 'unix', '' %}
@@ -724,7 +724,7 @@ collection:
         meta:
           id: req_1b953855073b47eeaadd5650ec8dbc41
           created: 1774484852300
-          modified: 1778044853246
+          modified: 1779091606650
           isPrivate: false
           description: ""
           sortKey: -1774329896696
@@ -909,7 +909,7 @@ environments:
   meta:
     id: env_6668099b5e1d4cf4aa78bf5503d76b87
     created: 1774328032068
-    modified: 1777453051987
+    modified: 1779091557116
     isPrivate: false
   data:
     base_url: http://172.30.1.65:8080
@@ -1012,67 +1012,67 @@ environments:
             "2606": "2606"
             "3910": "3910"
     hw_spec_category_options:
-      - sensor
-      - actuator
-      - controller
-      - sonde
-      - meter
+      - sensor: sensor
+      - actuator: actuator
+      - controller: controller
+      - sonde: sonde
+      - meter: meter
     hw_spec_interfaces_options:
-      - RS485
-      - RS422
-      - RS232
-      - SPI
-      - I2C
-      - CAN
-      - GPIO
-      - ETHERNET
-      - SDI_12
-      - ANALOG
+      - RS485: RS485
+      - RS422: RS422
+      - RS232: RS232
+      - SPI: SPI
+      - I2C: I2C
+      - CAN: CAN
+      - GPIO: GPIO
+      - ETHERNET: ETHERNET
+      - SDI_12: SDI_12
+      - ANALOG: ANALOG
     hw_spec_protocols_options:
-      - MODBUS_RTU
-      - MODBUS_ASCII
-      - MODBUS_TCP
-      - STANDARD_I2C
-      - STANDARD_SPI
-      - EXTENDED_SPI
-      - J1939
-      - BINARY_IO
-      - PULSE_CONTROL
-      - RAW_SERIAL
-      - SDI_12
-      - ANALOG
-      - NMEA0183
-      - NMEA2000
+      - MODBUS_RTU: MODBUS_RTU
+      - MODBUS_ASCII: MODBUS_ASCII
+      - MODBUS_TCP: MODBUS_TCP
+      - STANDARD_I2C: STANDARD_I2C
+      - STANDARD_SPI: STANDARD_SPI
+      - EXTENDED_SPI: EXTENDED_SPI
+      - J1939: J1939
+      - BINARY_IO: BINARY_IO
+      - PULSE_CONTROL: PULSE_CONTROL
+      - RAW_SERIAL: RAW_SERIAL
+      - SDI_12: SDI_12
+      - ANALOG: ANALOG
+      - NMEA0183: NMEA0183
+      - NMEA2000: NMEA2000
     hw_spec_direction_options:
-      - input
-      - output
-      - bidirectional
+      - input: input
+      - output: output
+      - bidirectional: bidirectional
     device_network_type_options:
-      - modem
-      - wifi
-      - ethernet
-      - satellite
+      - modem: modem
+      - wifi: wifi
+      - ethernet: ethernet
+      - satellite: satellite
     device_lifecycle_options:
-      - provisioned
-      - stabled
-      - rebooting
-      - updating
-      - error
+      - provisioned: provisioned
+      - stabled: stabled
+      - rebooting: rebooting
+      - updating: updating
+      - error: error
     device_app_type_options:
-      - factory
-      - service
+      - factory: factory
+      - service: service
     device_partition_options:
-      - factory
-      - ota_0
-      - ota_1
+      - factory: factory
+      - ota_0: ota_0
+      - ota_1: ota_1
     connection_options:
       - false
       - true
     shadow_name:
-      - status
-      - device
-      - network
-      - inventory
-      - telemetry
-      - config
-      - equipment
+      - status: status
+      - device: device
+      - network: network
+      - inventory: inventory
+      - telemetry: telemetry
+      - config: config
+      - equipment: equipment
