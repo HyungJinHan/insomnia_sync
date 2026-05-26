@@ -44,7 +44,7 @@ collection:
         meta:
           id: req_1e22b9eab8364060a87ee033e72bbfbd
           created: 1774328038756
-          modified: 1779091406856
+          modified: 1779175584791
           isPrivate: false
           description: ""
           sortKey: -1774328204441
@@ -53,42 +53,26 @@ collection:
           mimeType: application/json
           text: >-
             {
-              "vendor": "{{ _.hw_spec_seiral_options.APOGEE.vendor_name }}",
-              "series": "{{ _.hw_spec_seiral_options.APOGEE.SQ500.series_name }}",
-              "model": "{{ _.hw_spec_seiral_options.CWT.series.CO.model['2K_SD'] }}",
-              "category": "{{ _.hw_spec_category_options[0].sensor }}",
-              "interfaces": ["{{ _.hw_spec_interfaces_options[0].RS485 }}", "{{ _.hw_spec_interfaces_options[1].RS422 }}", "{{ _.hw_spec_interfaces_options[2].RS232 }}"],
-              "protocols": ["{{ _.hw_spec_protocols_options[0].MODBUS_RTU }}", "{{ _.hw_spec_protocols_options[1].MODBUS_ASCII }}"],
-              "direction": "{{ _.hw_spec_direction_options[2].bidirectional }}",
-              "capabilities": {
-                "certification": [
-                  "CE",
-                  "KC",
-                  "IP68"
-                ],
-                "features": {
-                  "atc": true,
-                  "pressure_correction": false,
-                  "salinity_correction": true
-                },
-                "functions": [
-                  "temperature_sensing",
-                  "dissolved_oxygen_sensing"
-                ],
-                "measurement_range": {
-                  "dissolved_oxygen": {
-                    "max": 20,
-                    "min": 0,
-                    "unit": "mg/L"
-                  },
-                  "temperature": {
-                    "max": 50,
-                    "min": -5,
-                    "unit": "Celsius"
-                  }
-                },
-                "sampling_rate_limit": "10Hz"
-              }
+            	"vendor": "{{ _.hw_spec_seiral_options.AQUALABO.vendor_name }}",
+            	"series": "{{ _.hw_spec_seiral_options.AQUALABO.PONSEL.series_name }}",
+            	"model": "{{ _.hw_spec_seiral_options.AQUALABO.PONSEL.model.C4E }}",
+            	"category": "{{ _.hw_spec_category_options[0].sensor }}",
+            	"interfaces": [
+            		"{{ _.hw_spec_interfaces_options[0].RS485 }}",
+            		"{{ _.hw_spec_interfaces_options[8].SDI_12 }}"
+            	],
+            	"protocols": [
+            		"{{ _.hw_spec_protocols_options[0].MODBUS_RTU }}",
+            		"{{ _.hw_spec_protocols_options[10].SDI_12 }}"
+            	],
+            	"suppoted_parameters": [
+            		"temperature",
+            		"conductivity",
+            		"salinity",
+            		"tds"
+            	],
+            	"direction": "{{ _.hw_spec_direction_options[0].input }}",
+            	"capabilities": {}
             }
         headers:
           - name: Content-Type
@@ -186,7 +170,7 @@ collection:
         meta:
           id: req_18f02bb2927a4a7d9b56d370cac345e8
           created: 1774341923197
-          modified: 1779091416934
+          modified: 1779175888793
           isPrivate: false
           description: ""
           sortKey: -1768883695191.5
@@ -195,42 +179,26 @@ collection:
           mimeType: application/json
           text: >-
             {
-              "vendor": "{{ _.hw_spec_seiral_options.APOGEE.vendor_name }}",
-              "series": "{{ _.hw_spec_seiral_options.APOGEE.SQ500.series_name }}",
-              "model": "{{ _.hw_spec_seiral_options.CWT.series.CO.model['2K_SD'] }}",
-              "category": "{{ _.hw_spec_category_options[0].sensor }}",
-              "interfaces": ["{{ _.hw_spec_interfaces_options[0].RS485 }}", "{{ _.hw_spec_interfaces_options[1].RS422 }}", "{{ _.hw_spec_interfaces_options[2].RS232 }}"],
-              "protocols": ["{{ _.hw_spec_protocols_options[0].MODBUS_RTU }}", "{{ _.hw_spec_protocols_options[1].MODBUS_ASCII }}"],
-              "direction": "{{ _.hw_spec_direction_options[2].bidirectional }}",
-              "capabilities": {
-                "certification": [
-                  "CE",
-                  "KC",
-                  "IP68"
-                ],
-                "features": {
-                  "atc": true,
-                  "pressure_correction": false,
-                  "salinity_correction": true
-                },
-                "functions": [
-                  "temperature_sensing",
-                  "dissolved_oxygen_sensing"
-                ],
-                "measurement_range": {
-                  "dissolved_oxygen": {
-                    "max": 20,
-                    "min": 0,
-                    "unit": "mg/L"
-                  },
-                  "temperature": {
-                    "max": 50,
-                    "min": -5,
-                    "unit": "Celsius"
-                  }
-                },
-                "sampling_rate_limit": "10Hz"
-              }
+            	"vendor": "{{ _.hw_spec_seiral_options.AQUALABO.vendor_name }}",
+            	"series": "{{ _.hw_spec_seiral_options.AQUALABO.PONSEL.series_name }}",
+            	"model": "{{ _.hw_spec_seiral_options.AQUALABO.PONSEL.model.OPTOD }}",
+            	"category": "{{ _.hw_spec_category_options[0].sensor }}",
+            	"interfaces": [
+            		"{{ _.hw_spec_interfaces_options[0].RS485 }}",
+            		"{{ _.hw_spec_interfaces_options[8].SDI_12 }}"
+            	],
+            	"protocols": [
+            		"{{ _.hw_spec_protocols_options[0].MODBUS_RTU }}",
+            		"{{ _.hw_spec_protocols_options[10].SDI_12 }}"
+            	],
+            	"suppoted_parameters": [
+            		"temperature",
+            		"oxygen",
+            		"oxygen_per",
+            		"oxygen_ppm"
+            	],
+            	"direction": "{{ _.hw_spec_direction_options[0].input }}",
+            	"capabilities": {}
             }
         headers:
           - name: Content-Type
@@ -248,13 +216,13 @@ collection:
             store: true
           rebuildPath: true
       - url: "{{ _.base_url }}{{ _.path }}/{% response 'body',
-          'req_b1b09e322a9843a1a0c44aeaaf7bf379', 'b64::JFsxXS51dWlk::46b',
+          'req_b1b09e322a9843a1a0c44aeaaf7bf379', 'b64::JFswXS51dWlk::46b',
           'always', 60 %}"
         name: /hardware-specs/{hw_spec_uuid}
         meta:
           id: req_1e7103dcf2004c269b4e34f8953961aa
           created: 1774342140668
-          modified: 1776134351442
+          modified: 1779092043364
           isPrivate: false
           description: ""
           sortKey: -1768883695091.5
@@ -401,7 +369,7 @@ collection:
         meta:
           id: req_faab4bb3abcb4cf3b57a359f11b4a13b
           created: 1774330180773
-          modified: 1779091583487
+          modified: 1779176679327
           isPrivate: false
           description: ""
           sortKey: -1774329896696
@@ -410,30 +378,30 @@ collection:
           mimeType: application/json
           text: |-
             {
-              "serial_number": "{% faker 'guid' %}",
-              "thing_name": "{% faker 'randomWord' %}",
-              "gg_id": "ODN-GG-OFC-AISVR-DEV",
-              "fw_version": "{% faker 'randomInt' %}",
+            	"serial_number": "{% faker 'guid' %}",
+            	"thing_name": "{% faker 'randomWord' %}",
+            	"gg_id": "ODN-GG-OFC-AISVR-DEV",
+            	"fw_version": "{% faker 'randomInt' %}",
             	"app_type": "{{ _.device_app_type_options[0].factory }}",
             	"partition": "{{ _.device_partition_options[0].factory }}",
-            	"network_type": "{{ _.device_network_type_options[0] }}",
-              "network_info": {
-                "imei": "861005074353795",
-                "imsi": "204047149332712",
-                "isp": "KT DATA ONLY",
-                "signal": {
-                  "band": "EUTRAN-BAND3",
-                  "rat": "LTE",
-                  "rsrp": -100.19999694824219,
-                  "rsrq": -6.199999809265137,
-                  "rssi": -74.0999984741211,
-                  "rssnr": 22
-                }
+            	"network_type": "{{ _.device_network_type_options[0].modem }}",
+            	"network_info": {
+            		"imei": "861005074353795",
+            		"imsi": "204047149332712",
+            		"isp": "KT DATA ONLY",
+            		"signal": {
+            			"band": "EUTRAN-BAND3",
+            			"rat": "LTE",
+            			"rsrp": -100.19999694824219,
+            			"rsrq": -6.199999809265137,
+            			"rssi": -74.0999984741211,
+            			"rssnr": 22
+            		}
             	},
-              "lifecycle": "{{ _.device_lifecycle_options[0].provisioned }}",
-              "connection": "{{ _.connection_options[0] }}",
-              "install_date": {% now 'unix', '' %},
-              "startup_time": {% now 'unix', '' %}
+            	"lifecycle": "{{ _.device_lifecycle_options[0].provisioned }}",
+            	"connection": "{{ _.connection_options[0] }}",
+            	"installed_date": {% now 'unix', '' %},
+            	"startup_time": {% now 'unix', '' %}
             }
         headers:
           - name: Content-Type
@@ -478,11 +446,11 @@ collection:
       - url: "{{ _.base_url }}{{ _.path }}/{% response 'body',
           'req_7d294459fc46494699b8ef49e8b25925', 'b64::JFswXS51dWlk::46b',
           'always', 60 %}"
-        name: /devices/{device_uuid}
+        name: /devices/{device_uuid} (schema error data)
         meta:
           id: req_08ba8177b80447f3b469e776087ce34d
           created: 1774342335697
-          modified: 1779091594958
+          modified: 1779754667651
           isPrivate: false
           description: ""
           sortKey: -1774329896396
@@ -491,30 +459,7 @@ collection:
           mimeType: application/json
           text: |-
             {
-              "serial_number": "{% faker 'guid' %}",
-              "thing_name": "{% faker 'randomWord' %}",
-              "gg_id": "ODN-GG-OFC-AISVR-DEV",
-              "fw_version": "{% faker 'randomInt' %}",
-            	"app_type": "{{ _.device_app_type_options[0].factory }}",
-            	"partition": "{{ _.device_partition_options[0].factory }}",
-            	"network_type": "{{ _.device_network_type_options[0] }}",
-              "network_info": {
-                "imei": "861005074353795",
-                "imsi": "204047149332712",
-                "isp": "KT DATA ONLY",
-                "signal": {
-                  "band": "EUTRAN-BAND3",
-                  "rat": "LTE",
-                  "rsrp": -100.19999694824219,
-                  "rsrq": -6.199999809265137,
-                  "rssi": -74.0999984741211,
-                  "rssnr": 22
-                }
-            	},
-              "lifecycle": "{{ _.device_lifecycle_options[0].provisioned }}",
-              "connection": "{{ _.connection_options[0] }}",
-              "install_date": {% now 'unix', '' %},
-              "startup_time": {% now 'unix', '' %}
+              "installed_date": {% now 'unix', '' %}
             }
         headers:
           - name: Content-Type
@@ -538,7 +483,7 @@ collection:
         meta:
           id: req_39680db875b14f7fb700e1fcf4c3d49c
           created: 1774400625526
-          modified: 1776134368236
+          modified: 1779175949829
           isPrivate: false
           description: ""
           sortKey: -1774329050418.5
@@ -636,6 +581,37 @@ collection:
             description: ""
             disabled: true
         headers:
+          - name: User-Agent
+            value: insomnia/12.4.0
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.base_url }}{{ _.path }}"
+        name: /devices (thing_name only)
+        meta:
+          id: req_b42063580ac844f39a85bfcae414616b
+          created: 1779158164729
+          modified: 1779754633101
+          isPrivate: false
+          description: ""
+          sortKey: -1774329896646
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"thing_name": "{% faker 'randomWord' %}"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
           - name: User-Agent
             value: insomnia/12.4.0
             description: ""
