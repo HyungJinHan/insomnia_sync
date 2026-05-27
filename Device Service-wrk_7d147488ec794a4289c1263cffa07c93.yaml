@@ -94,7 +94,7 @@ collection:
         meta:
           id: req_b1b09e322a9843a1a0c44aeaaf7bf379
           created: 1774328216520
-          modified: 1776134337982
+          modified: 1779847398369
           isPrivate: false
           description: ""
           sortKey: -1774328204341
@@ -105,7 +105,7 @@ collection:
             description: ""
             disabled: false
           - name: filter
-            value: '{"direction": "bidirectional"}'
+            value: '{"thing_name": "testdev00"}'
             description: ""
             disabled: true
           - name: sort
@@ -664,7 +664,7 @@ collection:
         meta:
           id: req_cc95b96e776e49f4b59b6cca2f85c6c6
           created: 1774484852299
-          modified: 1776134372191
+          modified: 1779862437966
           isPrivate: false
           description: ""
           sortKey: -1774329896596
@@ -675,7 +675,7 @@ collection:
             description: ""
             disabled: false
           - name: filter
-            value: '{"interval": 30}'
+            value: '{"device_id": 6}'
             description: ""
             disabled: true
           - name: sort
@@ -700,7 +700,7 @@ collection:
         meta:
           id: req_1b953855073b47eeaadd5650ec8dbc41
           created: 1774484852300
-          modified: 1779091606650
+          modified: 1779847390706
           isPrivate: false
           description: ""
           sortKey: -1774329896696
@@ -717,7 +717,6 @@ collection:
             		"{% faker 'guid' %}",
             		"{% faker 'guid' %}"
             	],
-            	"interval": 30,
             	"sw_version": "{% faker 'randomInt' %}",
             	"connection": "{{ _.connection_options[0] }}",
             	"install_date": {% now 'unix', '' %},
@@ -764,7 +763,7 @@ collection:
         meta:
           id: req_5a5e85d058194b56b35f5998bddf76cf
           created: 1774484852300
-          modified: 1776134374681
+          modified: 1779780322216
           isPrivate: false
           description: ""
           sortKey: -1774329896496
