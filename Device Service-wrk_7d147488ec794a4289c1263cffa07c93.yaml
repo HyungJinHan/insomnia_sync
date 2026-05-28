@@ -557,30 +557,28 @@ collection:
             send: true
             store: true
           rebuildPath: true
-      - url: "{{ _.base_url }}{{ _.path }}/mecs01/shadow/{{ _.shadow_name[0] }}"
-        name: /devices/{thing_name}/shadow/{shadow_name}
+      - url: "{{ _.base_url }}{{ _.path }}/testdev00/shadow/config"
+        name: /devices/{thing_name}/shadow/config
         meta:
           id: req_3d6dc332e2f14126aaba22d30665299c
           created: 1776134295515
-          modified: 1776825312695
+          modified: 1779872817876
           isPrivate: false
           description: ""
-          sortKey: -1774329896446
-        method: GET
-        parameters:
-          - name: range
-            value: "[0, 100]"
-            description: ""
-            disabled: true
-          - name: filter
-            value: '{"lifecycle": "provisioned"}'
-            description: ""
-            disabled: true
-          - name: sort
-            value: ""
-            description: ""
-            disabled: true
+          sortKey: -1774329896621
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"enabled": true,
+            	"metrics": [
+            		"oxygen"
+            	]
+            }
         headers:
+          - name: Content-Type
+            value: application/json
           - name: User-Agent
             value: insomnia/12.4.0
             description: ""
@@ -608,6 +606,39 @@ collection:
           text: |-
             {
             	"thing_name": "{% faker 'randomWord' %}"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/12.4.0
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.base_url }}{{ _.path }}/testdev00/shadow/config"
+        name: /devices/{thing_name}/shadow/config
+        meta:
+          id: req_8071576aa3454d0a9e4b4b3e1945f6bc
+          created: 1779868604184
+          modified: 1779868673560
+          isPrivate: false
+          description: ""
+          sortKey: -1774329896608.5
+        method: DELETE
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"metrics": [
+            		"temperature"
+            	]
             }
         headers:
           - name: Content-Type
