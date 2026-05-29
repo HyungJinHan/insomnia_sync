@@ -333,7 +333,7 @@ collection:
         meta:
           id: req_7d294459fc46494699b8ef49e8b25925
           created: 1774329896596
-          modified: 1776134355081
+          modified: 1780018709051
           isPrivate: false
           description: ""
           sortKey: -1774329896596
@@ -344,7 +344,7 @@ collection:
             description: ""
             disabled: false
           - name: filter
-            value: '{"lifecycle": "provisioned"}'
+            value: '{"thing_name": "08D1F91C9458"}'
             description: ""
             disabled: true
           - name: sort
@@ -477,13 +477,13 @@ collection:
             store: true
           rebuildPath: true
       - url: "{{ _.base_url }}{{ _.path }}/{% response 'body',
-          'req_7d294459fc46494699b8ef49e8b25925', 'b64::JFswXS51dWlk::46b',
+          'req_7d294459fc46494699b8ef49e8b25925', 'b64::JFsxXS51dWlk::46b',
           'always', 60 %}"
         name: /devices/{device_uuid}
         meta:
           id: req_39680db875b14f7fb700e1fcf4c3d49c
           created: 1774400625526
-          modified: 1779175949829
+          modified: 1780020248437
           isPrivate: false
           description: ""
           sortKey: -1774329050418.5
@@ -557,12 +557,12 @@ collection:
             send: true
             store: true
           rebuildPath: true
-      - url: "{{ _.base_url }}{{ _.path }}/testdev00/shadow/config"
+      - url: "{{ _.base_url }}{{ _.path }}/08D1F91C9458/shadow/config"
         name: /devices/{thing_name}/shadow/config
         meta:
           id: req_3d6dc332e2f14126aaba22d30665299c
           created: 1776134295515
-          modified: 1779872817876
+          modified: 1779958301346
           isPrivate: false
           description: ""
           sortKey: -1774329896621
@@ -571,9 +571,9 @@ collection:
           mimeType: application/json
           text: |-
             {
-            	"enabled": true,
+            	"enabled": false,
             	"metrics": [
-            		"oxygen"
+            		"temperature"
             	]
             }
         headers:
@@ -596,7 +596,7 @@ collection:
         meta:
           id: req_b42063580ac844f39a85bfcae414616b
           created: 1779158164729
-          modified: 1779754633101
+          modified: 1780018697848
           isPrivate: false
           description: ""
           sortKey: -1774329896646
@@ -605,7 +605,7 @@ collection:
           mimeType: application/json
           text: |-
             {
-            	"thing_name": "{% faker 'randomWord' %}"
+            	"thing_name": "08D1F91C9458"
             }
         headers:
           - name: Content-Type
@@ -622,12 +622,12 @@ collection:
             send: true
             store: true
           rebuildPath: true
-      - url: "{{ _.base_url }}{{ _.path }}/testdev00/shadow/config"
+      - url: "{{ _.base_url }}{{ _.path }}/08D1F91C9458/shadow/config"
         name: /devices/{thing_name}/shadow/config
         meta:
           id: req_8071576aa3454d0a9e4b4b3e1945f6bc
           created: 1779868604184
-          modified: 1779868673560
+          modified: 1779958342852
           isPrivate: false
           description: ""
           sortKey: -1774329896608.5
@@ -731,7 +731,7 @@ collection:
         meta:
           id: req_1b953855073b47eeaadd5650ec8dbc41
           created: 1774484852300
-          modified: 1779847390706
+          modified: 1780033192114
           isPrivate: false
           description: ""
           sortKey: -1774329896696
