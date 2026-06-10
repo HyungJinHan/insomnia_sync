@@ -44,7 +44,7 @@ collection:
         meta:
           id: req_1e22b9eab8364060a87ee033e72bbfbd
           created: 1774328038756
-          modified: 1779175584791
+          modified: 1780648547789
           isPrivate: false
           description: ""
           sortKey: -1774328204441
@@ -291,6 +291,96 @@ collection:
             send: true
             store: true
           rebuildPath: true
+      - url: "{{ _.base_url }}{{ _.path }}"
+        name: /hardware-specs
+        meta:
+          id: req_b7f22c75db954b049f2ed60b62999259
+          created: 1780648552821
+          modified: 1780983982906
+          isPrivate: false
+          description: ""
+          sortKey: -1774328204391
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"vendor": "APOGEE",
+            	"series": "SQ500",
+            	"model": "SQ522S",
+            	"category": "sensor",
+            	"interfaces": [
+            		"RS485"
+            	],
+            	"protocols": [
+            		"MODBUS_RTU"
+            	],
+            	"supported_parameters": [
+            		"ppfd"
+            	],
+            	"direction": "input",
+            	"capabilities": {}
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/12.4.0
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.base_url }}{{ _.path }}/8035a9b1-c1e6-4b96-af51-f4cc3026d3df"
+        name: /hardware-specs/{hw_spec_uuid} (specific)
+        meta:
+          id: req_fdda047fd3754283addec8f07fe39352
+          created: 1780983183586
+          modified: 1780983300389
+          isPrivate: false
+          description: ""
+          sortKey: -1768883695141.5
+        method: PUT
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"vendor": "EPEVER",
+            	"series": "TRACER_BP",
+            	"model": "2606",
+            	"category": "sensor",
+            	"interfaces": [
+            		"RS485"
+            	],
+            	"protocols": [
+            		"MODBUS_RTU"
+            	],
+            	"supported_parameters": [
+            		"power"
+            	],
+            	"direction": "input",
+            	"capabilities": {}
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/12.4.0
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
     environment:
       path: /hardware-specs
     environmentPropertyOrder:
@@ -450,7 +540,7 @@ collection:
         meta:
           id: req_08ba8177b80447f3b469e776087ce34d
           created: 1774342335697
-          modified: 1779754667651
+          modified: 1780361079443
           isPrivate: false
           description: ""
           sortKey: -1774329896396
@@ -459,7 +549,7 @@ collection:
           mimeType: application/json
           text: |-
             {
-              "installed_date": {% now 'unix', '' %}
+              "startup_time": {% now 'unix', '' %}
             }
         headers:
           - name: Content-Type
@@ -508,7 +598,7 @@ collection:
         meta:
           id: req_ed2a2fb4d3e944a299c89761c96dbeee
           created: 1774503245234
-          modified: 1779091591281
+          modified: 1780361091661
           isPrivate: false
           description: ""
           sortKey: -1774329473407.25
@@ -517,29 +607,6 @@ collection:
           mimeType: application/json
           text: |-
             {
-              "serial_number": "{% faker 'guid' %}",
-              "thing_name": "{% faker 'randomWord' %}",
-              "gg_id": "ODN-GG-OFC-AISVR-DEV",
-              "fw_version": "{% faker 'randomInt' %}",
-            	"app_type": "{{ _.device_app_type_options[0].factory }}",
-            	"partition": "{{ _.device_partition_options[0].factory }}",
-            	"network_type": "{{ _.device_network_type_options[0] }}",
-              "network_info": {
-                "imei": "861005074353795",
-                "imsi": "204047149332712",
-                "isp": "KT DATA ONLY",
-                "signal": {
-                  "band": "EUTRAN-BAND3",
-                  "rat": "LTE",
-                  "rsrp": -100.19999694824219,
-                  "rsrq": -6.199999809265137,
-                  "rssi": -74.0999984741211,
-                  "rssnr": 22
-                }
-            	},
-              "lifecycle": "{{ _.device_lifecycle_options[0].provisioned }}",
-              "connection": "{{ _.connection_options[0] }}",
-              "install_date": {% now 'unix', '' %},
               "startup_time": {% now 'unix', '' %}
             }
         headers:
@@ -562,7 +629,7 @@ collection:
         meta:
           id: req_b42063580ac844f39a85bfcae414616b
           created: 1779158164729
-          modified: 1780018697848
+          modified: 1780994528942
           isPrivate: false
           description: ""
           sortKey: -1774329896646
@@ -628,7 +695,7 @@ collection:
         meta:
           id: req_cc95b96e776e49f4b59b6cca2f85c6c6
           created: 1774484852299
-          modified: 1779862437966
+          modified: 1780996548378
           isPrivate: false
           description: ""
           sortKey: -1774329896596
@@ -639,7 +706,7 @@ collection:
             description: ""
             disabled: false
           - name: filter
-            value: '{"device_id": 6}'
+            value: '{"device_id": 11, "connection": true}'
             description: ""
             disabled: true
           - name: sort
@@ -746,53 +813,25 @@ collection:
             store: true
           rebuildPath: true
       - url: "{{ _.base_url }}{{ _.path }}/{% response 'body',
-          'req_cc95b96e776e49f4b59b6cca2f85c6c6', 'b64::JFswXS51dWlk::46b',
+          'req_cc95b96e776e49f4b59b6cca2f85c6c6', 'b64::JFsxXS51dWlk::46b',
           'always', 60 %}"
         name: /peripherals/{peripheral_uuid}
         meta:
           id: req_6590727d14b54b52ab58ab3ea4f800cd
           created: 1774484852300
-          modified: 1776134377123
+          modified: 1780361440725
           isPrivate: false
           description: ""
           sortKey: -1774329896396
         method: PUT
         body:
           mimeType: application/json
-          text: >-
+          text: |-
             {
-             	"hardware_uuid": "{% response 'body', 'req_b1b09e322a9843a1a0c44aeaaf7bf379', 'b64::JFswXS51dWlk::46b', 'always', 60 %}",
-             	"device_uuid": "{% response 'body', 'req_7d294459fc46494699b8ef49e8b25925', 'b64::JFswXS51dWlk::46b', 'always', 60 %}",
-              "serial_number": "{% faker 'randomUUID' %}",
-              "name": "{% faker 'randomWord' %}",
-              "data_key": [
-            		"{% faker 'guid' %}",
-            		"{% faker 'guid' %}"
-            	],
-              "interval": 30,
-              "sw_version": "{% faker 'randomInt' %}",
-            	"connection": "{{ _.connection_options[0] }}",
-            	"install_date": {% now 'unix', '' %},
-            	"protocol": "{% response 'body', 'req_b1b09e322a9843a1a0c44aeaaf7bf379', 'b64::JFswXS5wcm90b2NvbHNbMV0=::46b', 'always', 60 %}",
-            	"interface": "{% response 'body', 'req_b1b09e322a9843a1a0c44aeaaf7bf379', 'b64::JFswXS5pbnRlcmZhY2VzWzFd::46b', 'always', 60 %}",
-              "interface_conf": {
-                "baudrate": 9600,
-                "function_code": "0x03",
-                "mapping": {
-                  "dissolved_oxygen": {
-                    "address": 40002,
-                    "data_type": "float",
-                    "scale": 0.1
-                  },
-                  "temperature": {
-                    "address": 40001,
-                    "data_type": "float",
-                    "scale": 0.1
-                  }
-                },
-                "protocol": "MODBUS_RTU",
-                "slave_id": 10
-              }
+            	"data_key": [
+            		"temperature",
+            		"oxygen"
+            	]
             }
         headers:
           - name: Content-Type
@@ -809,12 +848,14 @@ collection:
             send: true
             store: true
           rebuildPath: true
-      - url: "{{ _.base_url }}{{ _.path }}/{device_id}"
+      - url: "{{ _.base_url }}{{ _.path }}/{% response 'body',
+          'req_cc95b96e776e49f4b59b6cca2f85c6c6', 'b64::JFs0XS51dWlk::46b',
+          'always', 60 %}"
         name: /peripherals/{peripheral_uuid}
         meta:
           id: req_e9cf01345e4d4651b90fb49d864b9756
           created: 1774484852301
-          modified: 1776134407733
+          modified: 1780649659741
           isPrivate: false
           description: ""
           sortKey: -1774329050418.5
@@ -869,103 +910,287 @@ collection:
         			<code>factory</code> | <code>ota_0</code> | <code>ota_1</code>
         	</details>
     children:
-      - url: "{{ _.base_url }}{{ _.path }}/08D1F91C9458/shadow/config"
-        name: /devices/{thing_name}/shadow/config (only metrics)
+      - name: 08D1F91C9458
         meta:
-          id: req_92feccd35ce94e00a53d05c7202ae2f8
-          created: 1780294646070
-          modified: 1780294865645
-          isPrivate: false
+          id: fld_150f5b529b7848cdb97af86ba040902e
+          created: 1780887095728
+          modified: 1780887095728
+          sortKey: -1780887095728
           description: ""
-          sortKey: -1774329896621
-        method: POST
-        body:
-          mimeType: application/json
-          text: |-
-            {
-            	"metrics": [
-            		"oxygen_ppm"
-            	]
-            }
-        headers:
-          - name: Content-Type
-            value: application/json
-          - name: User-Agent
-            value: insomnia/12.4.0
-            description: ""
-            disabled: false
-        settings:
-          renderRequestBody: true
-          encodeUrl: true
-          followRedirects: global
-          cookies:
-            send: true
-            store: true
-          rebuildPath: true
-      - url: "{{ _.base_url }}{{ _.path }}/08D1F91C9458/shadow/config"
-        name: /devices/{thing_name}/shadow/config
+        children:
+          - url: "{{ _.base_url }}{{ _.path }}/08D1F91C9458/shadow/config"
+            name: /devices/{thing_name}/shadow/config (only metrics)
+            meta:
+              id: req_92feccd35ce94e00a53d05c7202ae2f8
+              created: 1780294646070
+              modified: 1780989811360
+              isPrivate: false
+              description: ""
+              sortKey: -1780887109494
+            method: POST
+            body:
+              mimeType: application/json
+              text: |-
+                {
+                	"metrics": [
+                		"rain",
+                		"tds",
+                		"power",
+                		"ppfd",
+                		"humidity",
+                		"co2",
+                		"ph",
+                		"co",
+                		"salinity",
+                		"target_temperature",
+                		"oxygen",
+                		"redox",
+                		"conductivity",
+                		"pm25",
+                		"wind",
+                		"air_temperature",
+                		"illuminance",
+                		"temperature",
+                		"pm10",
+                		"pressure"
+                	],
+                	"clientToken": "req-{% faker 'randomUUID' %}"
+                }
+            headers:
+              - name: Content-Type
+                value: application/json
+              - name: User-Agent
+                value: insomnia/12.4.0
+                description: ""
+                disabled: false
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: "{{ _.base_url }}{{ _.path }}/08D1F91C9458/shadow/config"
+            name: /devices/{thing_name}/shadow/config
+            meta:
+              id: req_b935f7bedf954645ba9c954d4db3c0e8
+              created: 1780294646070
+              modified: 1780989300351
+              isPrivate: false
+              description: ""
+              sortKey: -1780887109294
+            method: DELETE
+            body:
+              mimeType: application/json
+              text: |-
+                {
+                	"metrics": [
+                		"illuminance"
+                	],
+                	"clientToken": "req-{% faker 'randomUUID' %}"
+                }
+            headers:
+              - name: Content-Type
+                value: application/json
+              - name: User-Agent
+                value: insomnia/12.4.0
+                description: ""
+                disabled: false
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: "{{ _.base_url }}{{ _.path }}/08D1F91C9458/shadow/config"
+            name: /devices/{thing_name}/shadow/config (only enabled)
+            meta:
+              id: req_091e3d57d4694fd598e8349116ad159f
+              created: 1780294874604
+              modified: 1780986562813
+              isPrivate: false
+              description: ""
+              sortKey: -1780887109394
+            method: POST
+            body:
+              mimeType: application/json
+              text: |-
+                {
+                	"enabled": true,
+                	"clientToken": "req-{% faker 'randomUUID' %}"
+                }
+            headers:
+              - name: Content-Type
+                value: application/json
+              - name: User-Agent
+                value: insomnia/12.4.0
+                description: ""
+                disabled: false
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: "{{ _.base_url }}{{ _.path }}/08D1F91C9458/shadow/config"
+            name: /devices/{thing_name}/shadow/config
+            meta:
+              id: req_afad38c1ed8a4d02943eef8ec251cbe7
+              created: 1780378696608
+              modified: 1780887109628
+              isPrivate: false
+              description: ""
+              sortKey: -1780887109594
+            method: GET
+            headers:
+              - name: User-Agent
+                value: insomnia/12.4.0
+                description: ""
+                disabled: false
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+      - name: A0A3B35DCBBC
         meta:
-          id: req_b935f7bedf954645ba9c954d4db3c0e8
-          created: 1780294646070
-          modified: 1780294646070
-          isPrivate: false
+          id: fld_227be5e21351404d8c7573ac699e0bcd
+          created: 1780887175912
+          modified: 1780887183950
+          sortKey: -1777608491809
           description: ""
-          sortKey: -1774329896608.5
-        method: DELETE
-        body:
-          mimeType: application/json
-          text: |-
-            {
-            	"metrics": [
-            		"temperature"
-            	]
-            }
-        headers:
-          - name: Content-Type
-            value: application/json
-          - name: User-Agent
-            value: insomnia/12.4.0
-            description: ""
-            disabled: false
-        settings:
-          renderRequestBody: true
-          encodeUrl: true
-          followRedirects: global
-          cookies:
-            send: true
-            store: true
-          rebuildPath: true
-      - url: "{{ _.base_url }}{{ _.path }}/08D1F91C9458/shadow/config"
-        name: /devices/{thing_name}/shadow/config (only enabled)
-        meta:
-          id: req_091e3d57d4694fd598e8349116ad159f
-          created: 1780294874604
-          modified: 1780294889524
-          isPrivate: false
-          description: ""
-          sortKey: -1774329896614.75
-        method: POST
-        body:
-          mimeType: application/json
-          text: |-
-            {
-            	"enabled": false
-            }
-        headers:
-          - name: Content-Type
-            value: application/json
-          - name: User-Agent
-            value: insomnia/12.4.0
-            description: ""
-            disabled: false
-        settings:
-          renderRequestBody: true
-          encodeUrl: true
-          followRedirects: global
-          cookies:
-            send: true
-            store: true
-          rebuildPath: true
+        children:
+          - url: "{{ _.base_url }}{{ _.path }}/A0A3B35DCBBC/shadow/config"
+            name: /devices/{thing_name}/shadow/config (only metrics)
+            meta:
+              id: req_0ab58e78cb414611a39680d0792062de
+              created: 1780887175912
+              modified: 1780887198808
+              isPrivate: false
+              description: ""
+              sortKey: -1780887109494
+            method: POST
+            body:
+              mimeType: application/json
+              text: |-
+                {
+                	"metrics": [
+                		"oxygen"
+                	],
+                	"clientToken": "req-{% faker 'randomUUID' %}"
+                }
+            headers:
+              - name: Content-Type
+                value: application/json
+              - name: User-Agent
+                value: insomnia/12.4.0
+                description: ""
+                disabled: false
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: "{{ _.base_url }}{{ _.path }}/A0A3B35DCBBC/shadow/config"
+            name: /devices/{thing_name}/shadow/config
+            meta:
+              id: req_50a8eb0e062246cba26170fbd3b41a0b
+              created: 1780887175912
+              modified: 1780887202338
+              isPrivate: false
+              description: ""
+              sortKey: -1780887109294
+            method: DELETE
+            body:
+              mimeType: application/json
+              text: |-
+                {
+                	"metrics": [
+                		"oxygen"
+                	],
+                	"clientToken": "req-{% faker 'randomUUID' %}"
+                }
+            headers:
+              - name: Content-Type
+                value: application/json
+              - name: User-Agent
+                value: insomnia/12.4.0
+                description: ""
+                disabled: false
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: "{{ _.base_url }}{{ _.path }}/A0A3B35DCBBC/shadow/config"
+            name: /devices/{thing_name}/shadow/config
+            meta:
+              id: req_5a4291a9ac144812a411fdcb2f92bce4
+              created: 1780887175912
+              modified: 1780887197007
+              isPrivate: false
+              description: ""
+              sortKey: -1780887109594
+            method: GET
+            headers:
+              - name: User-Agent
+                value: insomnia/12.4.0
+                description: ""
+                disabled: false
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: "{{ _.base_url }}{{ _.path }}/A0A3B35DCBBC/shadow/config"
+            name: /devices/{thing_name}/shadow/config (only enabled)
+            meta:
+              id: req_fe8dd75cdef74a0fb544855f942ec9a9
+              created: 1780887175912
+              modified: 1780965840498
+              isPrivate: false
+              description: ""
+              sortKey: -1780887109394
+            method: POST
+            body:
+              mimeType: application/json
+              text: |-
+                {
+                	"enabled": false,
+                	"clientToken": "req-{% faker 'randomUUID' %}"
+                }
+            headers:
+              - name: Content-Type
+                value: application/json
+              - name: User-Agent
+                value: insomnia/12.4.0
+                description: ""
+                disabled: false
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
     environment:
       path: /devices
     environmentPropertyOrder:
