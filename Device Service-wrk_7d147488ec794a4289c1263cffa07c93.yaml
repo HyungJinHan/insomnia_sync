@@ -336,12 +336,12 @@ collection:
             send: true
             store: true
           rebuildPath: true
-      - url: "{{ _.base_url }}{{ _.path }}/8035a9b1-c1e6-4b96-af51-f4cc3026d3df"
+      - url: "{{ _.base_url }}{{ _.path }}/8a5bfa5b-2aed-47e0-9caa-6a9fa1d6c6d0"
         name: /hardware-specs/{hw_spec_uuid} (specific)
         meta:
           id: req_fdda047fd3754283addec8f07fe39352
           created: 1780983183586
-          modified: 1780983300389
+          modified: 1781077387998
           isPrivate: false
           description: ""
           sortKey: -1768883695141.5
@@ -350,21 +350,10 @@ collection:
           mimeType: application/json
           text: |-
             {
-            	"vendor": "EPEVER",
-            	"series": "TRACER_BP",
-            	"model": "2606",
-            	"category": "sensor",
-            	"interfaces": [
-            		"RS485"
-            	],
-            	"protocols": [
-            		"MODBUS_RTU"
-            	],
             	"supported_parameters": [
-            		"power"
-            	],
-            	"direction": "input",
-            	"capabilities": {}
+            		"ppfd_atmospheric",
+                "ppfd_aquatic"
+                ]
             }
         headers:
           - name: Content-Type
@@ -423,7 +412,7 @@ collection:
         meta:
           id: req_7d294459fc46494699b8ef49e8b25925
           created: 1774329896596
-          modified: 1780018709051
+          modified: 1781052229745
           isPrivate: false
           description: ""
           sortKey: -1774329896596
@@ -434,7 +423,7 @@ collection:
             description: ""
             disabled: false
           - name: filter
-            value: '{"thing_name": "08D1F91C9458"}'
+            value: '{"thing_name": "08D1F91C9484"}'
             description: ""
             disabled: true
           - name: sort
@@ -508,14 +497,12 @@ collection:
             send: true
             store: true
           rebuildPath: true
-      - url: "{{ _.base_url }}{{ _.path }}/{% response 'body',
-          'req_7d294459fc46494699b8ef49e8b25925', 'b64::JFswXS51dWlk::46b',
-          'always', 60 %}"
+      - url: "{{ _.base_url }}{{ _.path }}/f3a0aa9f-06a1-4ef2-a11f-131ce30036bf"
         name: /devices/{device_uuid}
         meta:
           id: req_7b90e773e2e74669a2fb9b034b947c11
           created: 1774337166090
-          modified: 1776134360745
+          modified: 1781082957228
           isPrivate: false
           description: ""
           sortKey: -1774329896496
@@ -566,14 +553,12 @@ collection:
             send: true
             store: true
           rebuildPath: true
-      - url: "{{ _.base_url }}{{ _.path }}/{% response 'body',
-          'req_7d294459fc46494699b8ef49e8b25925', 'b64::JFsxXS51dWlk::46b',
-          'always', 60 %}"
+      - url: "{{ _.base_url }}{{ _.path }}/29e60e17-d539-4432-85cf-7a756321f9f8"
         name: /devices/{device_uuid}
         meta:
           id: req_39680db875b14f7fb700e1fcf4c3d49c
           created: 1774400625526
-          modified: 1780020248437
+          modified: 1781137724374
           isPrivate: false
           description: ""
           sortKey: -1774329050418.5
@@ -695,7 +680,7 @@ collection:
         meta:
           id: req_cc95b96e776e49f4b59b6cca2f85c6c6
           created: 1774484852299
-          modified: 1780996548378
+          modified: 1781070206134
           isPrivate: false
           description: ""
           sortKey: -1774329896596
@@ -711,6 +696,14 @@ collection:
             disabled: true
           - name: sort
             value: ""
+            description: ""
+            disabled: true
+          - name: filter
+            value: '{"conf": null}'
+            description: ""
+            disabled: true
+          - name: filter
+            value: '{"serial_number": "SN-101991024243900100"}'
             description: ""
             disabled: true
         headers:
@@ -848,14 +841,12 @@ collection:
             send: true
             store: true
           rebuildPath: true
-      - url: "{{ _.base_url }}{{ _.path }}/{% response 'body',
-          'req_cc95b96e776e49f4b59b6cca2f85c6c6', 'b64::JFs0XS51dWlk::46b',
-          'always', 60 %}"
+      - url: "{{ _.base_url }}{{ _.path }}/a75e8bf5-b1ca-4477-9ca7-39d5c84a96f3"
         name: /peripherals/{peripheral_uuid}
         meta:
           id: req_e9cf01345e4d4651b90fb49d864b9756
           created: 1774484852301
-          modified: 1780649659741
+          modified: 1781137698972
           isPrivate: false
           description: ""
           sortKey: -1774329050418.5
@@ -923,36 +914,24 @@ collection:
             meta:
               id: req_92feccd35ce94e00a53d05c7202ae2f8
               created: 1780294646070
-              modified: 1780989811360
+              modified: 1781137616285
               isPrivate: false
               description: ""
-              sortKey: -1780887109494
+              sortKey: -1780887109694
             method: POST
             body:
               mimeType: application/json
               text: |-
                 {
                 	"metrics": [
-                		"rain",
-                		"tds",
-                		"power",
-                		"ppfd",
-                		"humidity",
-                		"co2",
-                		"ph",
-                		"co",
-                		"salinity",
-                		"target_temperature",
                 		"oxygen",
+                		"salinity",
+                		"ph",
                 		"redox",
+                		"tds",
+                		"ppfd",
                 		"conductivity",
-                		"pm25",
-                		"wind",
-                		"air_temperature",
-                		"illuminance",
-                		"temperature",
-                		"pm10",
-                		"pressure"
+                		"temperature"
                 	],
                 	"clientToken": "req-{% faker 'randomUUID' %}"
                 }
@@ -976,7 +955,7 @@ collection:
             meta:
               id: req_b935f7bedf954645ba9c954d4db3c0e8
               created: 1780294646070
-              modified: 1780989300351
+              modified: 1781071074081
               isPrivate: false
               description: ""
               sortKey: -1780887109294
@@ -986,7 +965,14 @@ collection:
               text: |-
                 {
                 	"metrics": [
-                		"illuminance"
+                		"oxygen",
+                		"salinity",
+                		"ph",
+                		"redox",
+                		"tds",
+                		"ppfd",
+                		"conductivity",
+                		"temperature"
                 	],
                 	"clientToken": "req-{% faker 'randomUUID' %}"
                 }
@@ -1010,10 +996,10 @@ collection:
             meta:
               id: req_091e3d57d4694fd598e8349116ad159f
               created: 1780294874604
-              modified: 1780986562813
+              modified: 1781137617637
               isPrivate: false
               description: ""
-              sortKey: -1780887109394
+              sortKey: -1780887109644
             method: POST
             body:
               mimeType: application/json
@@ -1073,10 +1059,10 @@ collection:
             meta:
               id: req_0ab58e78cb414611a39680d0792062de
               created: 1780887175912
-              modified: 1780887198808
+              modified: 1781137618834
               isPrivate: false
               description: ""
-              sortKey: -1780887109494
+              sortKey: -1780887109694
             method: POST
             body:
               mimeType: application/json
@@ -1164,10 +1150,10 @@ collection:
             meta:
               id: req_fe8dd75cdef74a0fb544855f942ec9a9
               created: 1780887175912
-              modified: 1780965840498
+              modified: 1781137619984
               isPrivate: false
               description: ""
-              sortKey: -1780887109394
+              sortKey: -1780887109644
             method: POST
             body:
               mimeType: application/json
