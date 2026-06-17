@@ -903,7 +903,7 @@ collection:
         meta:
           id: fld_150f5b529b7848cdb97af86ba040902e
           created: 1780887095728
-          modified: 1781162379445
+          modified: 1781600201168
           sortKey: -1780887095928
           description: ""
         children:
@@ -912,7 +912,7 @@ collection:
             meta:
               id: req_92feccd35ce94e00a53d05c7202ae2f8
               created: 1780294646070
-              modified: 1781589319898
+              modified: 1781594262879
               isPrivate: false
               description: ""
               sortKey: -1780887109694
@@ -923,10 +923,13 @@ collection:
                 {
                 	"metrics": {
                 		"water": [
+                		"oxygen"
                 		],
                 		"air": [
+                			
                 		],
                 		"location": [
+                			
                 		]
                 	},
                 	"clientToken": "req-{% faker 'randomUUID' %}"
@@ -969,11 +972,65 @@ collection:
                 send: true
                 store: true
               rebuildPath: true
+          - url: "{{ _.data_server }}/telemetry/live/stream"
+            name: telemetry/live/stream (08D1F91C9458)
+            meta:
+              id: req_d5c8c0eebf344e0baba6444361d40c9a
+              created: 1781598748113
+              modified: 1781600653273
+              isPrivate: false
+              description: ""
+              sortKey: -1781598748113
+            method: POST
+            body:
+              mimeType: application/json
+              text: |-
+                {
+                	"device_id": "08D1F91C9458",
+                	"enabled": true,
+                	"client_token": "a43bc4cd-7cfc-418b-bbda-f0a630a4b3b6",
+                	"metrics": {
+                		"location": [
+                			"coordinates"
+                		],
+                		"water": [
+                			"temperature",
+                			"oxygen",
+                			"tds"
+                		],
+                		"air": [
+                			"temperature",
+                			"humidity",
+                			"target_temperature"
+                		]
+                	}
+                }
+            headers:
+              - name: Content-Type
+                value: application/json
+              - name: User-Agent
+                value: insomnia/12.6.0
+                description: ""
+                disabled: false
+              - name: Accept
+                value: text/event-stream
+                description: ""
+                disabled: false
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
         environment:
           thing_name: 08D1F91C9458
+          data_server: http://172.30.1.94:8888
         environmentPropertyOrder:
           "&":
             - thing_name
+            - data_server
       - name: A0A3B35DCBBC
         meta:
           id: fld_227be5e21351404d8c7573ac699e0bcd
@@ -1130,10 +1187,11 @@ environments:
   meta:
     id: env_6668099b5e1d4cf4aa78bf5503d76b87
     created: 1774328032068
-    modified: 1779091557116
+    modified: 1781600259984
     isPrivate: false
   data:
     base_url: http://172.30.1.65:8080
+    data_server: http://172.30.1.94:8888
     hw_spec_seiral_options:
       AQUALABO:
         vendor_name: AQUALABO
