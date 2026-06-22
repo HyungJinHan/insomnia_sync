@@ -412,7 +412,7 @@ collection:
         meta:
           id: req_7d294459fc46494699b8ef49e8b25925
           created: 1774329896596
-          modified: 1781161822587
+          modified: 1781847236377
           isPrivate: false
           description: ""
           sortKey: -1774329896596
@@ -423,7 +423,7 @@ collection:
             description: ""
             disabled: false
           - name: filter
-            value: '{"thing_name": "08D1F91C9458"}'
+            value: '{"thing_name": "08D1F91C9484"}'
             description: ""
             disabled: true
           - name: sort
@@ -553,12 +553,12 @@ collection:
             send: true
             store: true
           rebuildPath: true
-      - url: "{{ _.base_url }}{{ _.path }}/706d9922-88d7-4a02-be7f-695a8ee34e93"
+      - url: "{{ _.base_url }}{{ _.path }}/6d4b3577-7331-43df-bc33-0ff16d2171c1"
         name: /devices/{device_uuid}
         meta:
           id: req_39680db875b14f7fb700e1fcf4c3d49c
           created: 1774400625526
-          modified: 1781157257277
+          modified: 1781673834651
           isPrivate: false
           description: ""
           sortKey: -1774329050418.5
@@ -680,7 +680,7 @@ collection:
         meta:
           id: req_cc95b96e776e49f4b59b6cca2f85c6c6
           created: 1774484852299
-          modified: 1781163125034
+          modified: 1781855316062
           isPrivate: false
           description: ""
           sortKey: -1774329896596
@@ -691,7 +691,7 @@ collection:
             description: ""
             disabled: false
           - name: filter
-            value: '{"device_id": 11}'
+            value: '{"device_id": 15}'
             description: ""
             disabled: true
           - name: sort
@@ -780,12 +780,12 @@ collection:
             send: true
             store: true
           rebuildPath: true
-      - url: "{{ _.base_url }}{{ _.path }}/0b3809fe-b54f-4984-afee-06f7788be468"
+      - url: "{{ _.base_url }}{{ _.path }}/f1349e34-1a09-4269-b060-81c312cd7074"
         name: /peripherals/{peripheral_uuid}
         meta:
           id: req_5a5e85d058194b56b35f5998bddf76cf
           created: 1774484852300
-          modified: 1781578086893
+          modified: 1781673791736
           isPrivate: false
           description: ""
           sortKey: -1774329896496
@@ -912,7 +912,7 @@ collection:
             meta:
               id: req_92feccd35ce94e00a53d05c7202ae2f8
               created: 1780294646070
-              modified: 1781594262879
+              modified: 1781685190132
               isPrivate: false
               description: ""
               sortKey: -1780887109694
@@ -923,13 +923,11 @@ collection:
                 {
                 	"metrics": {
                 		"water": [
-                		"oxygen"
+                			"oxygen"
                 		],
                 		"air": [
-                			
                 		],
                 		"location": [
-                			
                 		]
                 	},
                 	"clientToken": "req-{% faker 'randomUUID' %}"
@@ -973,11 +971,11 @@ collection:
                 store: true
               rebuildPath: true
           - url: "{{ _.data_server }}/telemetry/live/stream"
-            name: telemetry/live/stream (08D1F91C9458)
+            name: /telemetry/live/stream (08D1F91C9458)
             meta:
               id: req_d5c8c0eebf344e0baba6444361d40c9a
               created: 1781598748113
-              modified: 1781600653273
+              modified: 1781848248718
               isPrivate: false
               description: ""
               sortKey: -1781598748113
@@ -988,20 +986,17 @@ collection:
                 {
                 	"device_id": "08D1F91C9458",
                 	"enabled": true,
-                	"client_token": "a43bc4cd-7cfc-418b-bbda-f0a630a4b3b6",
+                	"client_token": "c7e2b020-29d1-4e68-9427-758795424dc7",
                 	"metrics": {
                 		"location": [
                 			"coordinates"
                 		],
                 		"water": [
-                			"temperature",
                 			"oxygen",
-                			"tds"
+                			"temperature"
                 		],
                 		"air": [
-                			"temperature",
-                			"humidity",
-                			"target_temperature"
+                			"temperature"
                 		]
                 	}
                 }
