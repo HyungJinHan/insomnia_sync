@@ -871,7 +871,7 @@ collection:
     meta:
       id: fld_609950bcd35046c29d207ed4b8e3e5aa
       created: 1780294646070
-      modified: 1780294646070
+      modified: 1782114123700
       sortKey: -1770895378418.25
       description: >
         # Usage
@@ -975,7 +975,7 @@ collection:
             meta:
               id: req_d5c8c0eebf344e0baba6444361d40c9a
               created: 1781598748113
-              modified: 1781848248718
+              modified: 1782114462829
               isPrivate: false
               description: ""
               sortKey: -1781598748113
@@ -985,7 +985,6 @@ collection:
               text: |-
                 {
                 	"device_id": "08D1F91C9458",
-                	"enabled": true,
                 	"client_token": "c7e2b020-29d1-4e68-9427-758795424dc7",
                 	"metrics": {
                 		"location": [
