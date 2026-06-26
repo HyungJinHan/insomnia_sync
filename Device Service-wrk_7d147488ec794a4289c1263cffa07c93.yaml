@@ -680,7 +680,7 @@ collection:
         meta:
           id: req_cc95b96e776e49f4b59b6cca2f85c6c6
           created: 1774484852299
-          modified: 1781855316062
+          modified: 1782376975454
           isPrivate: false
           description: ""
           sortKey: -1774329896596
@@ -691,15 +691,15 @@ collection:
             description: ""
             disabled: false
           - name: filter
-            value: '{"device_id": 15}'
+            value: '{"device_id": 13}'
             description: ""
-            disabled: true
+            disabled: false
           - name: sort
             value: ""
             description: ""
             disabled: true
           - name: filter
-            value: '{"conf": null}'
+            value: '{"connection": true}'
             description: ""
             disabled: true
           - name: filter
@@ -839,12 +839,12 @@ collection:
             send: true
             store: true
           rebuildPath: true
-      - url: "{{ _.base_url }}{{ _.path }}/95912692-ff97-49b5-8101-40dd3503b35c"
+      - url: "{{ _.base_url }}{{ _.path }}/7f9f2f3b-e19b-4791-836e-6b91e85e4223"
         name: /peripherals/{peripheral_uuid}
         meta:
           id: req_e9cf01345e4d4651b90fb49d864b9756
           created: 1774484852301
-          modified: 1781161518073
+          modified: 1782375766953
           isPrivate: false
           description: ""
           sortKey: -1774329050418.5
@@ -975,7 +975,7 @@ collection:
             meta:
               id: req_d5c8c0eebf344e0baba6444361d40c9a
               created: 1781598748113
-              modified: 1782114462829
+              modified: 1782372315159
               isPrivate: false
               description: ""
               sortKey: -1781598748113
@@ -1029,7 +1029,7 @@ collection:
         meta:
           id: fld_227be5e21351404d8c7573ac699e0bcd
           created: 1780887175912
-          modified: 1781162381062
+          modified: 1782376857776
           sortKey: -1780887095878
           description: ""
         children:
@@ -1072,7 +1072,7 @@ collection:
             meta:
               id: req_5a4291a9ac144812a411fdcb2f92bce4
               created: 1780887175912
-              modified: 1781158128614
+              modified: 1782434721902
               isPrivate: false
               description: ""
               sortKey: -1780887109594
@@ -1080,6 +1080,54 @@ collection:
             headers:
               - name: User-Agent
                 value: insomnia/12.4.0
+                description: ""
+                disabled: false
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: "{{ _.data_server }}/telemetry/live/stream"
+            name: /telemetry/live/stream (A0A3B35DCBBC)
+            meta:
+              id: req_178e0a21f6224fb3b5442d4c8fc4ec78
+              created: 1782376866188
+              modified: 1782433655199
+              isPrivate: false
+              description: ""
+              sortKey: -1780887109794
+            method: POST
+            body:
+              mimeType: application/json
+              text: |-
+                {
+                	"device_id": "A0A3B35DCBBC",
+                	"client_token": "c7e2b020-29d1-4e68-9427-758795424dc7",
+                	"metrics": {
+                		"location": [
+                			"coordinates"
+                		],
+                		"water": [
+                			"oxygen",
+                			"temperature"
+                		],
+                		"air": [
+                			"temperature"
+                		]
+                	}
+                }
+            headers:
+              - name: Content-Type
+                value: application/json
+              - name: User-Agent
+                value: insomnia/12.6.0
+                description: ""
+                disabled: false
+              - name: Accept
+                value: text/event-stream
                 description: ""
                 disabled: false
             settings:
@@ -1099,7 +1147,7 @@ collection:
         meta:
           id: fld_9a909c333c4e40b19daff783089ddc05
           created: 1781162337114
-          modified: 1781162390640
+          modified: 1782434723806
           sortKey: -1780887095828
           description: ""
         children:
@@ -1150,6 +1198,54 @@ collection:
             headers:
               - name: User-Agent
                 value: insomnia/12.4.0
+                description: ""
+                disabled: false
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: "{{ _.data_server }}/telemetry/live/stream"
+            name: /telemetry/live/stream (08D1F91C9484)
+            meta:
+              id: req_24d24e805653400e84476e60bc038c3f
+              created: 1782434717418
+              modified: 1782434739075
+              isPrivate: false
+              description: ""
+              sortKey: -1780887109794
+            method: POST
+            body:
+              mimeType: application/json
+              text: |-
+                {
+                	"device_id": "08D1F91C9484",
+                	"client_token": "c7e2b020-29d1-4e68-9427-758795424dc7",
+                	"metrics": {
+                		"location": [
+                			"coordinates"
+                		],
+                		"water": [
+                			"oxygen",
+                			"temperature"
+                		],
+                		"air": [
+                			"temperature"
+                		]
+                	}
+                }
+            headers:
+              - name: Content-Type
+                value: application/json
+              - name: User-Agent
+                value: insomnia/12.6.0
+                description: ""
+                disabled: false
+              - name: Accept
+                value: text/event-stream
                 description: ""
                 disabled: false
             settings:
