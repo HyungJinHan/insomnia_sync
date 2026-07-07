@@ -11,7 +11,7 @@ collection:
     meta:
       id: fld_ba2bfd4ade6841ab97435a875020444a
       created: 1783064246011
-      modified: 1783316220910
+      modified: 1783383699552
       sortKey: -1783064246011
       description: ""
     children:
@@ -1172,7 +1172,7 @@ collection:
             meta:
               id: req_d5c8c0eebf344e0baba6444361d40c9a
               created: 1781598748113
-              modified: 1783316501842
+              modified: 1783328477292
               isPrivate: false
               description: ""
               sortKey: -1783315972855
@@ -1212,7 +1212,7 @@ collection:
               grantType: authorization_code
               accessTokenUrl: https://172.30.1.94/token
               authorizationUrl: https://172.30.1.94/authorize?nonce=fR559623sQeXWMscEMVizg
-              clientId: metaocean-local
+              clientId: "{{client_id}}"
               redirectUrl: https://172.30.1.65:444/api/auth/callback
               state: "{% hash 'sha256', 'base64', '' %}"
               usePkce: true
@@ -1264,7 +1264,7 @@ collection:
             meta:
               id: req_f9601ddbcf6a4109aa183260fcaa6181
               created: 1783316398726
-              modified: 1783316503448
+              modified: 1783328482860
               isPrivate: false
               description: ""
               sortKey: -1783315972955
@@ -1304,7 +1304,7 @@ collection:
               grantType: authorization_code
               accessTokenUrl: https://172.30.1.94/token
               authorizationUrl: https://172.30.1.94/authorize?nonce=fR559623sQeXWMscEMVizg
-              clientId: metaocean-local
+              clientId: "{{client_id}}"
               redirectUrl: https://172.30.1.65:444/api/auth/callback
               state: "{% hash 'sha256', 'base64', '' %}"
               usePkce: true
@@ -1321,7 +1321,7 @@ collection:
             meta:
               id: req_41e31bffb2c0461fa4da14ea2da9901b
               created: 1783316459179
-              modified: 1783316506899
+              modified: 1783328479774
               isPrivate: false
               description: ""
               sortKey: -1783315972905
@@ -1361,7 +1361,7 @@ collection:
               grantType: authorization_code
               accessTokenUrl: https://172.30.1.94/token
               authorizationUrl: https://172.30.1.94/authorize?nonce=fR559623sQeXWMscEMVizg
-              clientId: metaocean-local
+              clientId: "{{client_id}}"
               redirectUrl: https://172.30.1.65:444/api/auth/callback
               state: "{% hash 'sha256', 'base64', '' %}"
               usePkce: true
@@ -1378,7 +1378,8 @@ collection:
       grantType: authorization_code
       accessTokenUrl: https://172.30.1.94/token
       authorizationUrl: https://172.30.1.94/authorize?nonce=fR559623sQeXWMscEMVizg
-      clientId: metaocean-local
+      clientId: "{{client_id}}"
+      clientSecret: ""
       audience: ""
       redirectUrl: https://172.30.1.65:444/api/auth/callback
       credentialsInBody: false
@@ -1399,9 +1400,10 @@ environments:
   meta:
     id: env_6668099b5e1d4cf4aa78bf5503d76b87
     created: 1774328032068
-    modified: 1783299065219
+    modified: 1783328460196
     isPrivate: false
   data:
+    client_id: administrator_app_local
     base_url: http://172.30.1.65:8080
     data_server: http://172.30.1.94:8888
     hw_spec_seiral_options:
