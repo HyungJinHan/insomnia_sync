@@ -11,15 +11,78 @@ collection:
     meta:
       id: fld_ba2bfd4ade6841ab97435a875020444a
       created: 1783064246011
-      modified: 1783383699552
+      modified: 1783390209364
       sortKey: -1783064246011
-      description: ""
+      description: >-
+        # Insomnia OAuth 2.0 설정 가이드
+
+
+        이 문서는 Insomnia에서 OAuth 2.0 인증을 설정하고, 폴더 수준에서의 토큰 상속 및 관련 이슈를 다루는 방법을 안내함
+
+
+        ---
+
+
+        ## 1. 폴더 수준 인증과 하위 요청 상속
+
+
+        동일한 인증이 필요한 여러 요청을 관리하기 위해 폴더 수준에서 OAuth 2.0을 설정 가능
+
+
+        1.  **부모 폴더**의 `OAuth` 탭에서 위의 "OAuth 2.0 기본 설정" 단계를 수행하여 OAuth 2.0 인증을
+        구성
+
+        2.  **하위 요청**의 `OAuth` 탭에서 인증 방식을 **`Inherit from parent`**로 선택
+
+
+        이렇게 하면 하위 요청은 부모 폴더의 OAuth 2.0 설정과 발급된 토큰을 상속받아 사용
+
+
+        부모 폴더로 이동하여 인증을 거치지 않고 `Inherit from parent` 처리된 하위 요청 파일은 자동으로 로그인 페이지
+        팝업
+
+
+        ---
+
+
+        ## 2. 알려진 이슈 및 해결 방법
+
+
+        ### 2.1. SSE(Server-Sent Events)에서의 인증 문제
+
+
+        Insomnia는 SSE 프로토콜을 지원하지만, `Inherit from parent` 방식으로 상속받은 OAuth 2.0 토큰이
+        SSE 연결에서는 정상적으로 적용되지 않음
+
+
+        #### 2.1.1. 해결 방안
+
+
+        - 요청에 직접 OAuth 2.0 설정 (우회 방법)
+        	`Inherit from parent` 대신, **해당 요청 자체에 OAuth 2.0 인증을 직접 설정**하며, 해당 요청이 토큰을 직접 소유하게 되어 인증 헤더 생성이 보장
+
+        	- 하위 요청의 `Auth` 탭에서 `OAuth 2.0`을 직접 선택합니다.
+        	- 부모 폴더와 동일한 OAuth 2.0 설정값을 입력하고 `Fetch Tokens`를 실행합니다.
+
+        ### 2.2. 인증이 완료된 상태에서의 권한 에러
+
+
+        OAuth 부모 폴더에서의 인증 완료 후에도 데이터를 불러올때 인증 에러가 발생하는 경우
+
+
+        #### 2.2.1. 해결 방안
+
+
+        - 토큰 만료로 인한 인증 에러의 경우 `Refresh Token`를 통해 토큰 갱신
+
+        - 토큰 발급 중복으로 인한 토큰 꼬임으로 인증 불가의 경우, `Clear OAuth 2 session` 버튼과 `Clear`로
+        현재 세션의 토큰을 삭제, 재인증 진행
     children:
-      - name: hardware-spec
+      - name: hardware-spec (OAuth 2.0)
         meta:
           id: fld_2bdaf6705bb245e282d34314011a2459
           created: 1774328191829
-          modified: 1783322431140
+          modified: 1783403798276
           sortKey: -1783315970349
           description: >-
             # Usage
@@ -52,7 +115,7 @@ collection:
             meta:
               id: req_1e22b9eab8364060a87ee033e72bbfbd
               created: 1774328038756
-              modified: 1780648547789
+              modified: 1783389743616
               isPrivate: false
               description: ""
               sortKey: -1774328204441
@@ -98,11 +161,11 @@ collection:
                 store: true
               rebuildPath: true
           - url: "{{ _.base_url }}{{ _.path }}"
-            name: /hardware-specs (OAuth 2.0)
+            name: /hardware-specs
             meta:
               id: req_b1b09e322a9843a1a0c44aeaaf7bf379
               created: 1774328216520
-              modified: 1783324434381
+              modified: 1783403792665
               isPrivate: false
               description: ""
               sortKey: -1771605949841.25
@@ -140,7 +203,7 @@ collection:
             meta:
               id: req_13bb643f1c2e4388884f32e91dac9868
               created: 1774337274043
-              modified: 1776134340972
+              modified: 1783398956803
               isPrivate: false
               description: ""
               sortKey: -1768883695291.5
@@ -178,7 +241,7 @@ collection:
             meta:
               id: req_18f02bb2927a4a7d9b56d370cac345e8
               created: 1774341923197
-              modified: 1779175888793
+              modified: 1783934190048
               isPrivate: false
               description: ""
               sortKey: -1768883695191.5
@@ -268,7 +331,7 @@ collection:
             meta:
               id: req_364926c6e8e34eada57aa3158f1cb1bf
               created: 1775021680595
-              modified: 1776134343826
+              modified: 1783398926979
               isPrivate: false
               description: ""
               sortKey: -1768883695241.5
@@ -344,12 +407,12 @@ collection:
                 send: true
                 store: true
               rebuildPath: true
-          - url: "{{ _.base_url }}{{ _.path }}/5ad5f83c-a2ed-4e32-8c73-880f1f637223"
+          - url: "{{ _.base_url }}{{ _.path }}/6663bb50-a86f-4bc5-821c-a814c29ed259"
             name: /hardware-specs/{hw_spec_uuid} (specific)
             meta:
               id: req_fdda047fd3754283addec8f07fe39352
               created: 1780983183586
-              modified: 1782874849269
+              modified: 1783934283762
               isPrivate: false
               description: ""
               sortKey: -1768883695141.5
@@ -359,9 +422,9 @@ collection:
               text: |-
                 {
                 	"supported_parameters": [
-                		"temperature",
-                		"oxygen"
-                	]
+                			"temperature",
+                			"humidity"
+                		]
                 }
             headers:
               - name: Content-Type
@@ -383,11 +446,11 @@ collection:
         environmentPropertyOrder:
           "&":
             - path
-      - name: device
+      - name: device (OAuth 2.0)
         meta:
           id: fld_2f073cd76af5488baf62c19e86108b50
           created: 1774329887790
-          modified: 1783299535408
+          modified: 1783403805716
           sortKey: -1783299511624
           description: >
             # Usage
@@ -420,7 +483,7 @@ collection:
             meta:
               id: req_7d294459fc46494699b8ef49e8b25925
               created: 1774329896596
-              modified: 1782882418704
+              modified: 1783500334667
               isPrivate: false
               description: ""
               sortKey: -1774329896596
@@ -505,12 +568,12 @@ collection:
                 send: true
                 store: true
               rebuildPath: true
-          - url: "{{ _.base_url }}{{ _.path }}/6829a865-9648-4156-a217-0c555f02b7ed"
+          - url: "{{ _.base_url }}{{ _.path }}/938a4c39-7ddf-4c30-b7a3-1ffa8b021573"
             name: /devices/{device_uuid}
             meta:
               id: req_7b90e773e2e74669a2fb9b034b947c11
               created: 1774337166090
-              modified: 1783311067447
+              modified: 1783933571133
               isPrivate: false
               description: ""
               sortKey: -1774329896496
@@ -561,12 +624,12 @@ collection:
                 send: true
                 store: true
               rebuildPath: true
-          - url: "{{ _.base_url }}{{ _.path }}/6829a865-9648-4156-a217-0c555f02b7ed"
+          - url: "{{ _.base_url }}{{ _.path }}/f80d7ae1-18cf-40c5-b51c-f216fcfa5611"
             name: /devices/{device_uuid}
             meta:
               id: req_39680db875b14f7fb700e1fcf4c3d49c
               created: 1774400625526
-              modified: 1783311096403
+              modified: 1783408179945
               isPrivate: false
               description: ""
               sortKey: -1774329050418.5
@@ -584,14 +647,12 @@ collection:
                 send: true
                 store: true
               rebuildPath: true
-          - url: "{{ _.base_url }}{{ _.path }}/{% response 'body',
-              'req_7d294459fc46494699b8ef49e8b25925',
-              'b64::JFswXS50aGluZ19uYW1l::46b', 'always', 60 %}"
+          - url: "{{ _.base_url }}{{ _.path }}/f5205ca9-4584-4fe1-8c46-6d6b987a5165"
             name: /devices/{thing_name}
             meta:
               id: req_ed2a2fb4d3e944a299c89761c96dbeee
               created: 1774503245234
-              modified: 1780361091661
+              modified: 1783988892591
               isPrivate: false
               description: ""
               sortKey: -1774329473407.25
@@ -600,7 +661,7 @@ collection:
               mimeType: application/json
               text: |-
                 {
-                  "startup_time": {% now 'unix', '' %}
+                  "type": "mount"
                 }
             headers:
               - name: Content-Type
@@ -648,11 +709,11 @@ collection:
                 send: true
                 store: true
               rebuildPath: true
-          - name: device shadow
+          - name: device shadow (OAuth 2.0)
             meta:
               id: fld_609950bcd35046c29d207ed4b8e3e5aa
               created: 1780294646070
-              modified: 1783302162855
+              modified: 1783403813552
               sortKey: -1774329050318.5
               description: >
                 # Usage
@@ -916,11 +977,11 @@ collection:
         environmentPropertyOrder:
           "&":
             - path
-      - name: peripheral
+      - name: peripheral (OAuth 2.0)
         meta:
           id: fld_bd18f9602c124e4fa03063d882f93efc
           created: 1774484852298
-          modified: 1783322459653
+          modified: 1783403819107
           sortKey: -1783299511617.75
           description: >-
             # Usage
@@ -951,7 +1012,7 @@ collection:
             meta:
               id: req_cc95b96e776e49f4b59b6cca2f85c6c6
               created: 1774484852299
-              modified: 1783311457790
+              modified: 1783933519800
               isPrivate: false
               description: ""
               sortKey: -1774329896596
@@ -974,7 +1035,7 @@ collection:
                 description: ""
                 disabled: true
               - name: filter
-                value: '{"serial_number": "SN-101991024243900100"}'
+                value: '{"serial_number": "SN-PPHRB-7838"}'
                 description: ""
                 disabled: true
             headers:
@@ -995,7 +1056,7 @@ collection:
             meta:
               id: req_1b953855073b47eeaadd5650ec8dbc41
               created: 1774484852300
-              modified: 1780033192114
+              modified: 1783933143755
               isPrivate: false
               description: ""
               sortKey: -1774329896696
@@ -1016,25 +1077,7 @@ collection:
                 	"connection": "{{ _.connection_options[0] }}",
                 	"install_date": {% now 'unix', '' %},
                 	"protocol": "{% response 'body', 'req_b1b09e322a9843a1a0c44aeaaf7bf379', 'b64::JFswXS5wcm90b2NvbHNbMF0=::46b', 'always', 60 %}",
-                	"interface": "{% response 'body', 'req_b1b09e322a9843a1a0c44aeaaf7bf379', 'b64::JFswXS5pbnRlcmZhY2VzWzBd::46b', 'always', 60 %}",
-                	"interface_conf": {
-                		"baudrate": 9600,
-                		"function_code": "0x03",
-                		"mapping": {
-                			"dissolved_oxygen": {
-                				"address": 40002,
-                				"data_type": "float",
-                				"scale": 0.1
-                			},
-                			"temperature": {
-                				"address": 40001,
-                				"data_type": "float",
-                				"scale": 0.1
-                			}
-                		},
-                		"protocol": "MODBUS_RTU",
-                		"slave_id": 10
-                	}
+                	"interface": "{% response 'body', 'req_b1b09e322a9843a1a0c44aeaaf7bf379', 'b64::JFswXS5pbnRlcmZhY2VzWzBd::46b', 'always', 60 %}"
                 }
             headers:
               - name: Content-Type
@@ -1131,12 +1174,12 @@ collection:
                 send: true
                 store: true
               rebuildPath: true
-          - url: "{{ _.base_url }}{{ _.path }}/devices/69a17972-5aea-4224-9a0d-18d2626ef53d"
+          - url: "{{ _.base_url }}{{ _.path }}/devices/938a4c39-7ddf-4c30-b7a3-1ffa8b021573"
             name: /peripherals/devices/{device_uuid}
             meta:
               id: req_ecd43929b90640e4ad2b2072455dd8d1
               created: 1783311785042
-              modified: 1783311821027
+              modified: 1783933555619
               isPrivate: false
               description: ""
               sortKey: -1774329896446
@@ -1159,11 +1202,11 @@ collection:
         environmentPropertyOrder:
           "&":
             - path
-      - name: telemetry
+      - name: telemetry (OAuth 2.0 each)
         meta:
           id: fld_98fcdf4dd84441dea4ece960fdfdfa84
           created: 1783315970249
-          modified: 1783322456660
+          modified: 1783403968205
           sortKey: -1783299511611.5
           description: ""
         children:
@@ -1172,7 +1215,7 @@ collection:
             meta:
               id: req_d5c8c0eebf344e0baba6444361d40c9a
               created: 1781598748113
-              modified: 1783328477292
+              modified: 1783387593134
               isPrivate: false
               description: ""
               sortKey: -1783315972855
@@ -1213,6 +1256,7 @@ collection:
               accessTokenUrl: https://172.30.1.94/token
               authorizationUrl: https://172.30.1.94/authorize?nonce=fR559623sQeXWMscEMVizg
               clientId: "{{client_id}}"
+              audience: urn:odn:device:resource
               redirectUrl: https://172.30.1.65:444/api/auth/callback
               state: "{% hash 'sha256', 'base64', '' %}"
               usePkce: true
@@ -1264,7 +1308,7 @@ collection:
             meta:
               id: req_f9601ddbcf6a4109aa183260fcaa6181
               created: 1783316398726
-              modified: 1783328482860
+              modified: 1783403427499
               isPrivate: false
               description: ""
               sortKey: -1783315972955
@@ -1305,9 +1349,12 @@ collection:
               accessTokenUrl: https://172.30.1.94/token
               authorizationUrl: https://172.30.1.94/authorize?nonce=fR559623sQeXWMscEMVizg
               clientId: "{{client_id}}"
+              audience: urn:odn:device:resource
               redirectUrl: https://172.30.1.65:444/api/auth/callback
               state: "{% hash 'sha256', 'base64', '' %}"
+              tokenPrefix: ""
               usePkce: true
+              origin: ""
             settings:
               renderRequestBody: true
               encodeUrl: true
@@ -1321,7 +1368,7 @@ collection:
             meta:
               id: req_41e31bffb2c0461fa4da14ea2da9901b
               created: 1783316459179
-              modified: 1783328479774
+              modified: 1783387589663
               isPrivate: false
               description: ""
               sortKey: -1783315972905
@@ -1362,6 +1409,7 @@ collection:
               accessTokenUrl: https://172.30.1.94/token
               authorizationUrl: https://172.30.1.94/authorize?nonce=fR559623sQeXWMscEMVizg
               clientId: "{{client_id}}"
+              audience: urn:odn:device:resource
               redirectUrl: https://172.30.1.65:444/api/auth/callback
               state: "{% hash 'sha256', 'base64', '' %}"
               usePkce: true
@@ -1380,7 +1428,7 @@ collection:
       authorizationUrl: https://172.30.1.94/authorize?nonce=fR559623sQeXWMscEMVizg
       clientId: "{{client_id}}"
       clientSecret: ""
-      audience: ""
+      audience: urn:odn:device:resource
       redirectUrl: https://172.30.1.65:444/api/auth/callback
       credentialsInBody: false
       state: "{% hash 'sha256', 'base64', '' %}"
@@ -1389,22 +1437,469 @@ collection:
       origin: ""
     environment:
       access_token: "{% request 'oauth2', '', 0 %}"
+  - name: OAuth Admin
+    meta:
+      id: fld_c41a59e0018c4fe2a640f46a7eae3009
+      created: 1783389654044
+      modified: 1783390709848
+      sortKey: -1783064246111
+      description: ""
+    children:
+      - url: "{{ _.oauth_url }}/login"
+        name: /login
+        meta:
+          id: req_e4e152a7baa34bf7a4b7749dc5750554
+          created: 1783390728018
+          modified: 1783410965913
+          isPrivate: false
+          description: ""
+          sortKey: -1783392938312
+        method: POST
+        body:
+          mimeType: application/x-www-form-urlencoded
+          params:
+            - name: username
+              value: master@odn.us
+            - name: password
+              value: "!Odn12006"
+              description: ""
+              disabled: false
+            - name: client_id
+              value: administrator_app_local
+              description: ""
+              disabled: false
+            - name: client_secret
+              value: 3NTZHWVnmp82o3Wpy4KreNjfoSnXC6MNUK4ZIDUgze0
+              description: ""
+              disabled: false
+        headers:
+          - name: Content-Type
+            value: application/x-www-form-urlencoded
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.oauth_url }}/token"
+        name: /token
+        meta:
+          id: req_b59158e35306413bac6ba00de36689cd
+          created: 1783392938212
+          modified: 1783410886842
+          isPrivate: false
+          description: ""
+          sortKey: -1783392938212
+        method: POST
+        body:
+          mimeType: application/x-www-form-urlencoded
+          params:
+            - name: grant_type
+              value: client_credentials
+              description: ""
+              disabled: false
+        headers:
+          - name: Content-Type
+            value: application/x-www-form-urlencoded
+          - name: Authorization
+            value: Basic
+              YXdzLWxhbWJkYS1zaGFkb3ctc3luYzp0VXZ5RGtTbzFmNG55eG5TWXJGbGZRMHpmTS1vZWc1OTBKamtnS3RydUZR
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.oauth_url }}/logout"
+        name: /logout
+        meta:
+          id: req_a1d03bb4bb694372a6ab127677da5b68
+          created: 1783472669648
+          modified: 1783472731716
+          isPrivate: false
+          description: ""
+          sortKey: -1783392938262
+        method: POST
+        body:
+          mimeType: application/x-www-form-urlencoded
+          params:
+            - name: client_id
+              value: administrator_app_local
+              description: ""
+              disabled: false
+            - name: redirect_uri
+              value: /
+              description: ""
+              disabled: false
+        headers:
+          - name: Content-Type
+            value: application/x-www-form-urlencoded
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - name: audiences
+        meta:
+          id: fld_7e3523c18197423bb3e983321607205f
+          created: 1783389927974
+          modified: 1783391321702
+          sortKey: -1783389927974
+          description: ""
+        children:
+          - url: "{{ _.oauth_url }}{{ _.path }}"
+            name: /audiences
+            meta:
+              id: req_c65252f181f949988b27105f4985ce1b
+              created: 1783389733482
+              modified: 1783391331645
+              isPrivate: false
+              description: ""
+              sortKey: -1783389929700
+            method: POST
+            body:
+              mimeType: application/json
+              text: |-
+                {
+                	"urn": "aws-lambda-local",
+                	"description": "for AWS Lambda (Local)"
+                }
+            headers:
+              - name: Content-Type
+                value: application/json
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: "{{ _.oauth_url }}{{ _.path }}"
+            name: /audiences
+            meta:
+              id: req_e18b23b40127453d8b22c85f441ba30e
+              created: 1783391044570
+              modified: 1783391126649
+              isPrivate: false
+              description: ""
+              sortKey: -1783352951327.5
+            method: GET
+            body:
+              mimeType: application/json
+              text: |-
+                {
+                	"urn": "update-device-local",
+                	"description": "for AWS Lambda (Local)"
+                }
+            headers:
+              - name: Content-Type
+                value: application/json
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+        environment:
+          path: /audiences
+        environmentPropertyOrder:
+          "&":
+            - path
+      - name: clients
+        meta:
+          id: fld_a3e4792e6eda4e42b60ec93699e1dadb
+          created: 1783391250539
+          modified: 1783391328112
+          sortKey: -1783391250539
+          description: ""
+        children:
+          - url: "{{ _.oauth_url }}{{ _.path }}"
+            name: /clients
+            meta:
+              id: req_4abc4e0af4024c6ba144f00802f441ad
+              created: 1783391281385
+              modified: 1783391673250
+              isPrivate: false
+              description: ""
+              sortKey: -1783391281385
+            method: POST
+            body:
+              mimeType: application/json
+              text: |-
+                {
+                	"name": "aws-lambda-shadow-sync",
+                	"type": "internal",
+                	"grant_types": [
+                		"client_credentials"
+                	],
+                	"redirect_uris": [
+                		"https://172.30.1.65:444/"
+                	],
+                	"status": "enabled",
+                	"audiences": [
+                		"urn:odn:device:resource"
+                	],
+                	"scopes": []
+                }
+            headers:
+              - name: Content-Type
+                value: application/json
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: "{{ _.oauth_url }}{{ _.path }}"
+            name: /clients
+            meta:
+              id: req_bb5f757949fe4b5386353d71f64d4449
+              created: 1783391341547
+              modified: 1783391344674
+              isPrivate: false
+              description: ""
+              sortKey: -1783391266012
+            method: GET
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: "{{ _.oauth_url }}{{ _.path }}/aws-lambda-shadow-sync/status"
+            name: /clients/{client_id}/status
+            meta:
+              id: req_f60b2701f7e04f2dba3365f12a6f4a25
+              created: 1783391790261
+              modified: 1783391886402
+              isPrivate: false
+              description: ""
+              sortKey: -1783391265912
+            method: PATCH
+            body:
+              mimeType: application/json
+              text: |-
+                {
+                  "status": "enabled"
+                }
+            headers:
+              - name: Content-Type
+                value: application/json
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: "{{ _.oauth_url }}{{ _.path }}/aws-lambda-shadow-sync/scope"
+            name: /clients/{client_id}/scope
+            meta:
+              id: req_aeb24ed437994b439024c84d61d51bed
+              created: 1783391915550
+              modified: 1783391939282
+              isPrivate: false
+              description: ""
+              sortKey: -1783391258275.5
+            method: PATCH
+            body:
+              mimeType: application/json
+              text: |-
+                {
+                  "status": "enabled"
+                }
+            headers:
+              - name: Content-Type
+                value: application/json
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: "{{ _.oauth_url }}{{ _.path }}/aws-lambda-shadow-sync/audience"
+            name: /clients/{client_id}/audience
+            meta:
+              id: req_e47ff962e0124f3f8f0ce5163d29a246
+              created: 1783391928001
+              modified: 1783391984947
+              isPrivate: false
+              description: ""
+              sortKey: -1783391262093.75
+            method: PATCH
+            body:
+              mimeType: application/json
+              text: |-
+                [
+                	"urn:odn:device:resource"
+                ]
+            parameters:
+              - name: action
+                value: append
+                description: ""
+                disabled: false
+            headers:
+              - name: Content-Type
+                value: application/json
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: "{{ _.oauth_url }}{{ _.path }}/administrator_app_local/redirect-uri"
+            name: /clients/{client_id}/redirect-uri
+            meta:
+              id: req_02b86d5333734ba9a95d9d7a36177544
+              created: 1783392014843
+              modified: 1783406670770
+              isPrivate: false
+              description: ""
+              sortKey: -1783391260184.625
+            method: PATCH
+            body:
+              mimeType: application/json
+              text: |
+                [
+                  "https://172.30.1.65:5173"
+                ]
+            parameters:
+              - name: action
+                value: append
+                description: ""
+                disabled: false
+            headers:
+              - name: Content-Type
+                value: application/json
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: "{{ _.oauth_url }}{{ _.path }}/aws-lambda-shadow-sync/type"
+            name: /clients/{client_id}/type
+            meta:
+              id: req_838057203b3441058ea53a2974c34a94
+              created: 1783392057774
+              modified: 1783392071008
+              isPrivate: false
+              description: ""
+              sortKey: -1783391264002.875
+            method: PATCH
+            body:
+              mimeType: application/json
+              text: |-
+                {
+                  "type": "public"
+                }
+            headers:
+              - name: Content-Type
+                value: application/json
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: "{{ _.oauth_url }}{{ _.path }}/aws-lambda-shadow-sync/audience"
+            name: /clients/{client_id}/grant-type
+            meta:
+              id: req_b585dfd3c64c4082b84f7b5a2b9db875
+              created: 1783392089839
+              modified: 1783392111013
+              isPrivate: false
+              description: ""
+              sortKey: -1783391261139.1875
+            method: PATCH
+            body:
+              mimeType: application/json
+              text: |
+                [
+                  "authorization_code",
+                	"refresh_token",
+                	"client_credentials"
+                ]
+            parameters:
+              - name: action
+                value: append
+                description: ""
+                disabled: false
+            headers:
+              - name: Content-Type
+                value: application/json
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+        environment:
+          path: /clients
+        environmentPropertyOrder:
+          "&":
+            - path
+    authentication:
+      type: none
+    environment:
+      path: /audiences
+    environmentPropertyOrder:
+      "&":
+        - path
 cookieJar:
   name: Default Jar
   meta:
     id: jar_0d21fb15e03145b8bd3af9512e337acb
     created: 1774328032071
-    modified: 1774328032071
+    modified: 1783558436995
+  cookies:
+    - id: efa4c0e2-bfc0-4cfc-9d54-dc912993ed7e
+      key: ODNASID
+      value: piLAf44UvbPZ-F9ptNMUfEzcyXwMkC648fHkkjeYga0
+      domain: 172.30.1.94
+      path: /
+      secure: true
+      httpOnly: true
+      hostOnly: true
 environments:
   name: Base Environment
   meta:
     id: env_6668099b5e1d4cf4aa78bf5503d76b87
     created: 1774328032068
-    modified: 1783328460196
+    modified: 1783410763264
     isPrivate: false
   data:
-    client_id: administrator_app_local
+    client_id: metaocean-local
+    admin_client_id: administrator_app_local
     base_url: http://172.30.1.65:8080
+    oauth_url: https://172.30.1.94
     data_server: http://172.30.1.94:8888
     hw_spec_seiral_options:
       AQUALABO:
