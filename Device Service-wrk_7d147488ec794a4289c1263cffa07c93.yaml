@@ -483,7 +483,7 @@ collection:
             meta:
               id: req_7d294459fc46494699b8ef49e8b25925
               created: 1774329896596
-              modified: 1783500334667
+              modified: 1784514362758
               isPrivate: false
               description: ""
               sortKey: -1774329896596
@@ -693,6 +693,38 @@ collection:
               text: |-
                 {
                 	"thing_name": "08D1F91C9458"
+                }
+            headers:
+              - name: Content-Type
+                value: application/json
+              - name: User-Agent
+                value: insomnia/12.4.0
+                description: ""
+                disabled: false
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: "{{ _.base_url }}{{ _.path }}/f5205ca9-4584-4fe1-8c46-6d6b987a5165/info"
+            name: /devices/{thing_name}/info
+            meta:
+              id: req_04912538f5cb4a7d80ab2c546cb8a796
+              created: 1784594460103
+              modified: 1784596175127
+              isPrivate: false
+              description: ""
+              sortKey: -1774329261912.875
+            method: PUT
+            body:
+              mimeType: application/json
+              text: |-
+                {
+                  "type": "mount",
+                	"name": "{% faker 'randomWord' %}"
                 }
             headers:
               - name: Content-Type
